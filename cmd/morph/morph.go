@@ -22,7 +22,7 @@ type Ending struct {
 	Tag      string
 }
 
-type Replacemant struct {
+type Replacement struct {
 	Old string
 	New string
 }
@@ -36,7 +36,7 @@ func main() {
 	var (
 		stems        = make(map[string][]Stem)
 		endings      = make(map[string][]Ending)
-		replacements []Replacemant
+		replacements []Replacement
 	)
 	for i := 0; i < flag.NArg(); i++ {
 		f, err := os.Open(flag.Arg(i))
@@ -91,7 +91,7 @@ func main() {
 						fmt.Fprintln(os.Stderr, "bad definition at line", l)
 						os.Exit(1)
 					}
-					replacements = append(replacements, Replacemant{Old: comps[1], New: comps[2]})
+					replacements = append(replacements, Replacement{Old: comps[1], New: comps[2]})
 				default:
 					fmt.Fprintln(os.Stderr, "bad definition at line", l)
 					os.Exit(1)
