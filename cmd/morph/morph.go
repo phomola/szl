@@ -10,39 +10,82 @@ import (
 	"strings"
 )
 
+// Stem ...
 type Stem struct {
 	Form     string
 	Paradigm string
 	Lemma    string
 }
 
+// Ending ...
 type Ending struct {
 	Form     string
 	Paradigm string
 	Tag      string
 }
 
+// Replacement ...
 type Replacement struct {
 	Old string
 	New string
 }
 
+// Analyser ...
+type Analyser struct {
+	Stems    map[string][]Stem
+	Endings  map[string][]Ending
+	Replacer *strings.Replacer
+}
+
 func main() {
+	var (
+		list bool
+	)
+	flag.BoolVar(&list, "list", false, "list all forms (takes file name(s) of lexicon files)")
 	flag.Parse()
-	if flag.NArg() == 0 {
-		fmt.Fprintln(os.Stderr, "no input files")
-		os.Exit(1)
+	if list {
+		if flag.NArg() == 0 {
+			fmt.Fprintln(os.Stderr, "no input files")
+			os.Exit(1)
+		}
+		an, err := loadLex(flag.Args())
+		if err != nil {
+			fmt.Fprintln(os.Stderr, "cannot load lexicon:", err)
+			os.Exit(1)
+		}
+		listForms(an)
+	} else {
+		flag.PrintDefaults()
 	}
+}
+
+func listForms(an *Analyser) {
+	for _, stems := range an.Stems {
+		for _, stem := range stems {
+			ends, ok := an.Endings[stem.Paradigm]
+			if !ok {
+				fmt.Fprintln(os.Stderr, "unknown paradigm", stem.Paradigm, "for", stem.Lemma)
+				os.Exit(1)
+			}
+			for _, end := range ends {
+				form := stem.Form + end.Form
+				form = an.Replacer.Replace(form)
+				fmt.Println(form, stem.Lemma, end.Tag)
+			}
+		}
+	}
+}
+
+func loadLex(files []string) (*Analyser, error) {
 	var (
 		stems        = make(map[string][]Stem)
 		endings      = make(map[string][]Ending)
 		replacements []Replacement
 	)
-	for i := 0; i < flag.NArg(); i++ {
-		f, err := os.Open(flag.Arg(i))
+	for _, fn := range files {
+		f, err := os.Open(fn)
 		if err != nil {
-			fmt.Fprintln(os.Stderr, "cannot open file:", err)
-			os.Exit(1)
+			return nil, fmt.Errorf("cannot open file: %w", err)
 		}
 		defer f.Close()
 		r := bufio.NewReader(f)
@@ -54,8 +97,7 @@ func main() {
 			}
 			l++
 			if err != nil {
-				fmt.Fprintln(os.Stderr, "cannot read line:", err)
-				os.Exit(1)
+				return nil, fmt.Errorf("cannot read line: %w", err)
 			}
 			line = strings.TrimSpace(line)
 			if line == "" || line[0] == '#' {
@@ -65,8 +107,7 @@ func main() {
 			case '@':
 				comps := strings.Split(line[1:], " ")
 				if len(comps) != 3 {
-					fmt.Fprintln(os.Stderr, "bad definition at line", l)
-					os.Exit(1)
+					return nil, fmt.Errorf("bad definition at line %d", l)
 				}
 				lemma, par, form := comps[0], comps[1], comps[2]
 				l := stems[lemma]
@@ -74,8 +115,7 @@ func main() {
 			case '-':
 				comps := strings.Split(line[1:], " ")
 				if len(comps) != 3 {
-					fmt.Fprintln(os.Stderr, "bad definition at line", l)
-					os.Exit(1)
+					return nil, fmt.Errorf("bad definition at line %d", l)
 				}
 				par, tag, form := comps[0], comps[1], comps[2]
 				if form == "0" {
@@ -88,17 +128,14 @@ func main() {
 				switch comps[0] {
 				case ">":
 					if len(comps) != 3 {
-						fmt.Fprintln(os.Stderr, "bad definition at line", l)
-						os.Exit(1)
+						return nil, fmt.Errorf("bad definition at line %d", l)
 					}
 					replacements = append(replacements, Replacement{Old: comps[1], New: comps[2]})
 				default:
-					fmt.Fprintln(os.Stderr, "bad definition at line", l)
-					os.Exit(1)
+					return nil, fmt.Errorf("bad definition at line %d", l)
 				}
 			default:
-				fmt.Fprintln(os.Stderr, "bad directive at line", l)
-				os.Exit(1)
+				return nil, fmt.Errorf("bad directive at line %d", l)
 			}
 		}
 	}
@@ -107,18 +144,9 @@ func main() {
 		pairs = append(pairs, r.Old, r.New)
 	}
 	replacer := strings.NewReplacer(pairs...)
-	for _, stems := range stems {
-		for _, stem := range stems {
-			ends, ok := endings[stem.Paradigm]
-			if !ok {
-				fmt.Fprintln(os.Stderr, "unknown paradigm", stem.Paradigm, "for", stem.Lemma)
-				os.Exit(1)
-			}
-			for _, end := range ends {
-				form := stem.Form + end.Form
-				form = replacer.Replace(form)
-				fmt.Println(form, stem.Lemma, end.Tag)
-			}
-		}
-	}
+	return &Analyser{
+		Stems:    stems,
+		Endings:  endings,
+		Replacer: replacer,
+	}, nil
 }
