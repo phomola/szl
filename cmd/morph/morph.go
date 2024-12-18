@@ -8,6 +8,8 @@ import (
 	"io"
 	"os"
 	"strings"
+
+	"github.com/phomola/textkit"
 )
 
 // Stem ...
@@ -30,18 +32,72 @@ type Replacement struct {
 	New string
 }
 
+// Entry ...
+type Entry struct {
+	Lemma            string
+	Tag              string
+	Category         string
+	FeatureStructure string
+	Autosemantic     bool
+}
+
 // Analyser ...
 type Analyser struct {
-	Stems    map[string][]Stem
-	Endings  map[string][]Ending
-	Replacer *strings.Replacer
+	Stems             map[string][]Stem
+	Endings           map[string][]Ending
+	Replacer          *strings.Replacer
+	FeatureStructures map[string][]string
+	Entries           map[string][]*Entry
+}
+
+// Analyse ...
+func (an *Analyser) Analyse(form string) ([]*Entry, error) {
+	if an.Entries == nil {
+		if err := an.buildEntries(); err != nil {
+			return nil, err
+		}
+	}
+	if entries, ok := an.Entries[form]; ok {
+		return entries, nil
+	}
+	return nil, nil
+}
+
+func (an *Analyser) buildEntries() error {
+	an.Entries = make(map[string][]*Entry)
+	for _, stems := range an.Stems {
+		for _, stem := range stems {
+			ends, ok := an.Endings[stem.Paradigm]
+			if !ok {
+				return fmt.Errorf("unknown paradigm %s for %s", stem.Paradigm, stem.Lemma)
+			}
+			for _, end := range ends {
+				form := stem.Form + end.Form
+				form = an.Replacer.Replace(form)
+				entry := &Entry{
+					Lemma: stem.Lemma,
+					Tag:   end.Tag,
+				}
+				if fs, ok := an.FeatureStructures[end.Tag]; ok {
+					entry.Category = fs[0]
+					entry.FeatureStructure = fs[1]
+					entry.Autosemantic = fs[2] == "autosem"
+				}
+				entries := an.Entries[form]
+				an.Entries[form] = append(entries, entry)
+			}
+		}
+	}
+	return nil
 }
 
 func main() {
 	var (
-		list bool
+		list       bool
+		chartInput string
 	)
 	flag.BoolVar(&list, "list", false, "list all forms (takes file name(s) of lexicon files)")
+	flag.StringVar(&chartInput, "chart", "", "chart for the input phrase (takes file name(s) of lexicon files)")
 	flag.Parse()
 	if list {
 		if flag.NArg() == 0 {
@@ -53,19 +109,57 @@ func main() {
 			fmt.Fprintln(os.Stderr, "cannot load lexicon:", err)
 			os.Exit(1)
 		}
-		listForms(an)
+		if err := listForms(an); err != nil {
+			fmt.Fprintln(os.Stderr, "cannot list forms:", err)
+			os.Exit(1)
+		}
+	} else if chartInput != "" {
+		an, err := loadLex(flag.Args())
+		if err != nil {
+			fmt.Fprintln(os.Stderr, "cannot load lexicon:", err)
+			os.Exit(1)
+		}
+		var tokeniser textkit.Tokeniser
+		tokens := tokeniser.Tokenise(chartInput, "")
+		for i, token := range tokens {
+			if token.Type == textkit.EOF {
+				continue
+			}
+			form := string(token.Form)
+			entries, err := an.Analyse(form)
+			if err != nil {
+				fmt.Fprintln(os.Stderr, "cannot analyse entry:", err)
+				os.Exit(1)
+			}
+			start, end := i+1, i+2
+			if len(entries) >= 1 {
+				for _, entry := range entries {
+					if entry.Category == "" || entry.FeatureStructure == "" {
+						fmt.Fprintf(os.Stderr, "no category and/or feature structure for '%s' (tag '%s')\n", form, entry.Tag)
+						os.Exit(1)
+					}
+					fs := strings.ReplaceAll(entry.FeatureStructure, ",", " ")
+					if entry.Autosemantic {
+						fs = fs[:len(fs)-1] + fmt.Sprintf(" lemma:%q index:\"%d\"]", entry.Lemma, start)
+					}
+					fmt.Printf("-%d- %s %s -%d-\n", start, entry.Category, fs, end)
+				}
+			} else {
+				fs := fmt.Sprintf("[form:%q index:\"%d\"]", form, start)
+				fmt.Printf("-%d- U %s -%d-\n", start, fs, end)
+			}
+		}
 	} else {
 		flag.PrintDefaults()
 	}
 }
 
-func listForms(an *Analyser) {
+func listForms(an *Analyser) error {
 	for _, stems := range an.Stems {
 		for _, stem := range stems {
 			ends, ok := an.Endings[stem.Paradigm]
 			if !ok {
-				fmt.Fprintln(os.Stderr, "unknown paradigm", stem.Paradigm, "for", stem.Lemma)
-				os.Exit(1)
+				return fmt.Errorf("unknown paradigm %s for %s", stem.Paradigm, stem.Lemma)
 			}
 			for _, end := range ends {
 				form := stem.Form + end.Form
@@ -74,13 +168,15 @@ func listForms(an *Analyser) {
 			}
 		}
 	}
+	return nil
 }
 
 func loadLex(files []string) (*Analyser, error) {
 	var (
-		stems        = make(map[string][]Stem)
-		endings      = make(map[string][]Ending)
-		replacements []Replacement
+		stems             = make(map[string][]Stem)
+		endings           = make(map[string][]Ending)
+		replacements      []Replacement
+		featureStructures = make(map[string][]string)
 	)
 	for _, fn := range files {
 		f, err := os.Open(fn)
@@ -134,6 +230,15 @@ func loadLex(files []string) (*Analyser, error) {
 				default:
 					return nil, fmt.Errorf("bad definition at line %d", l)
 				}
+			case '*':
+				comps := strings.Split(line[1:], " ")
+				if len(comps) != 4 {
+					return nil, fmt.Errorf("bad definition at line %d", l)
+				}
+				if _, ok := featureStructures[comps[0]]; ok {
+					return nil, fmt.Errorf("feature structure for '%s' already defined", comps[0])
+				}
+				featureStructures[comps[0]] = comps[1:]
 			default:
 				return nil, fmt.Errorf("bad directive at line %d", l)
 			}
@@ -145,8 +250,9 @@ func loadLex(files []string) (*Analyser, error) {
 	}
 	replacer := strings.NewReplacer(pairs...)
 	return &Analyser{
-		Stems:    stems,
-		Endings:  endings,
-		Replacer: replacer,
+		Stems:             stems,
+		Endings:           endings,
+		Replacer:          replacer,
+		FeatureStructures: featureStructures,
 	}, nil
 }

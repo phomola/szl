@@ -44,3 +44,35 @@
 
 !> p'e pie
 !> d'e dzie
+
+# feature structures
+
+*nmh1s N [gender:"m",anim:"hum",case:"nom",number:"sg"] autosem
+*nmh2s N [gender:"m",anim:"hum",case:"gen",number:"sg"] autosem
+*nmh3s N [gender:"m",anim:"hum",case:"dat",number:"sg"] autosem
+*nmh4s N [gender:"m",anim:"hum",case:"acc",number:"sg"] autosem
+*nmh5s N [gender:"m",anim:"hum",case:"voc",number:"sg"] autosem
+*nmh6s N [gender:"m",anim:"hum",case:"loc",number:"sg"] autosem
+*nmh7s N [gender:"m",anim:"hum",case:"ins",number:"sg"] autosem
+*nmh1p N [gender:"m",anim:"hum",case:"nom",number:"pl"] autosem
+*nmh2p N [gender:"m",anim:"hum",case:"gen",number:"pl"] autosem
+*nmh3p N [gender:"m",anim:"hum",case:"dat",number:"pl"] autosem
+*nmh4p N [gender:"m",anim:"hum",case:"acc",number:"pl"] autosem
+*nmh5p N [gender:"m",anim:"hum",case:"voc",number:"pl"] autosem
+*nmh6p N [gender:"m",anim:"hum",case:"loc",number:"pl"] autosem
+*nmh7p N [gender:"m",anim:"hum",case:"ins",number:"pl"] autosem
+
+*nf1s N [gender:"f",case:"nom",number:"sg"] autosem
+*nf2s N [gender:"f",case:"gen",number:"sg"] autosem
+*nf3s N [gender:"f",case:"dat",number:"sg"] autosem
+*nf4s N [gender:"f",case:"acc",number:"sg"] autosem
+*nf5s N [gender:"f",case:"voc",number:"sg"] autosem
+*nf6s N [gender:"f",case:"loc",number:"sg"] autosem
+*nf7s N [gender:"f",case:"ins",number:"sg"] autosem
+*nf1p N [gender:"f",case:"nom",number:"pl"] autosem
+*nf2p N [gender:"f",case:"gen",number:"pl"] autosem
+*nf3p N [gender:"f",case:"dat",number:"pl"] autosem
+*nf4p N [gender:"f",case:"acc",number:"pl"] autosem
+*nf5p N [gender:"f",case:"voc",number:"pl"] autosem
+*nf6p N [gender:"f",case:"loc",number:"pl"] autosem
+*nf7p N [gender:"f",case:"ins",number:"pl"] autosem
