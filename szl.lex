@@ -5,6 +5,7 @@
 # stems
 
 @chłop nm1 chłop
+@lód nm2 l{ó}d
 @hołda nf1 hołd
 
 # paradigms
@@ -17,13 +18,29 @@
 -nm1 nmh5s 'e
 -nm1 nmh6s 'e
 -nm1 nmh7s ym
--nm1 nmh1p i
+-nm1 nmh1p 'i
 -nm1 nmh2p ōw
 -nm1 nmh3p ōm
 -nm1 nmh4p ōw
--nm1 nmh5p i
+-nm1 nmh5p 'i
 -nm1 nmh6p ach
 -nm1 nmh7p ami
+
+-nm2 nmh1s 0
+-nm2 nmh2s a >ó,o
+-nm2 nmh3s u >ó,o
+-nm2 nmh3s owi >ó,o
+-nm2 nmh4s 0
+-nm2 nmh5s 'e >ó,o
+-nm2 nmh6s 'e >ó,o
+-nm2 nmh7s ym >ó,o
+-nm2 nmh1p y >ó,o
+-nm2 nmh2p ōw >ó,o
+-nm2 nmh3p ōm >ó,o
+-nm2 nmh4p y >ó,o
+-nm2 nmh5p y >ó,o
+-nm2 nmh6p ach >ó,o
+-nm2 nmh7p ami >ó,o
 
 -nf1 nf1s a
 -nf1 nf2s y
@@ -44,6 +61,7 @@
 
 !> p'e pie
 !> d'e dzie
+!> p'i pi
 
 # feature structures
 

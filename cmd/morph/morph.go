@@ -9,6 +9,7 @@ import (
 	"os"
 	"strings"
 
+	"github.com/fealsamh/go-utils/replacer"
 	"github.com/phomola/textkit"
 )
 
@@ -21,9 +22,10 @@ type Stem struct {
 
 // Ending ...
 type Ending struct {
-	Form     string
-	Paradigm string
-	Tag      string
+	Form         string
+	Paradigm     string
+	Tag          string
+	Replacements map[string]string
 }
 
 // Replacement ...
@@ -72,7 +74,7 @@ func (an *Analyser) buildEntries() error {
 				return fmt.Errorf("unknown paradigm %s for %s", stem.Paradigm, stem.Lemma)
 			}
 			for _, end := range ends {
-				form := stem.Form + end.Form
+				form := replacer.Replace(stem.Form, end.Replacements) + end.Form
 				form = an.Replacer.Replace(form)
 				entry := &Entry{
 					Lemma: stem.Lemma,
@@ -162,7 +164,7 @@ func listForms(an *Analyser) error {
 				return fmt.Errorf("unknown paradigm %s for %s", stem.Paradigm, stem.Lemma)
 			}
 			for _, end := range ends {
-				form := stem.Form + end.Form
+				form := replacer.Replace(stem.Form, end.Replacements) + end.Form
 				form = an.Replacer.Replace(form)
 				fmt.Println(form, stem.Lemma, end.Tag)
 			}
@@ -210,15 +212,34 @@ func loadLex(files []string) (*Analyser, error) {
 				stems[lemma] = append(l, Stem{Lemma: lemma, Paradigm: par, Form: form})
 			case '-':
 				comps := strings.Split(line[1:], " ")
-				if len(comps) != 3 {
+				if len(comps) < 3 {
 					return nil, fmt.Errorf("bad definition at line %d", l)
 				}
 				par, tag, form := comps[0], comps[1], comps[2]
 				if form == "0" {
 					form = ""
 				}
+				var repl map[string]string
+				for _, dir := range comps[3:] {
+					if len(dir) > 0 {
+						if dir[0] == '>' {
+							if old, new, ok := strings.Cut(dir[1:], ","); ok {
+								if repl == nil {
+									repl = make(map[string]string)
+								}
+								repl[old] = new
+							} else {
+								return nil, fmt.Errorf("bad definition at line %d", l)
+							}
+						} else {
+							return nil, fmt.Errorf("bad definition at line %d", l)
+						}
+					} else {
+						return nil, fmt.Errorf("bad definition at line %d", l)
+					}
+				}
 				l := endings[par]
-				endings[par] = append(l, Ending{Form: form, Paradigm: par, Tag: tag})
+				endings[par] = append(l, Ending{Form: form, Paradigm: par, Tag: tag, Replacements: repl})
 			case '!':
 				comps := strings.Split(line[1:], " ")
 				switch comps[0] {
