@@ -8,9 +8,11 @@ import (
 	"io"
 	"os"
 	"plugin"
+	"strconv"
 	"strings"
 
 	"github.com/fealsamh/go-utils/replacer"
+	"github.com/phomola/lrparser"
 	"github.com/phomola/szl/syntax"
 	"github.com/phomola/textkit"
 )
@@ -43,6 +45,45 @@ type Entry struct {
 	Category         string
 	FeatureStructure string
 	Autosemantic     bool
+	avm              *syntax.AVM
+}
+
+var avmGrammar *lrparser.Grammar
+
+// AVM gets the associated AVM.
+func (e *Entry) AVM() (*syntax.AVM, error) {
+	if e.avm != nil {
+		return e.avm, nil
+	}
+	if avmGrammar == nil {
+		avmGrammar = lrparser.NewGrammar(lrparser.MustBuildRules([]*lrparser.SynSem{
+			{Syn: `Init -> AVM`, Sem: func(args []any) any { return args[0] }},
+			{Syn: `AVM -> "[" Pairs "]"`, Sem: func(args []any) any {
+				return &syntax.AVM{Features: args[1].(map[string]syntax.AVMValue)}
+			}},
+			{Syn: `Pairs -> Pairs "," Pair`, Sem: func(args []any) any {
+				m := args[0].(map[string]syntax.AVMValue)
+				p := args[2].([]interface{})
+				m[p[0].(string)] = p[1].(syntax.AVMValue)
+				return m
+			}},
+			{Syn: `Pairs -> Pair`, Sem: func(args []any) any {
+				p := args[0].([]interface{})
+				return map[string]syntax.AVMValue{p[0].(string): p[1].(syntax.AVMValue)}
+			}},
+			{Syn: `Pair -> ident ":" string`, Sem: func(args []any) any {
+				return []interface{}{args[0].(string), syntax.String(args[2].(string))}
+			}},
+		}))
+	}
+	tokeniser := textkit.Tokeniser{StringRune: '"'}
+	tokens := tokeniser.Tokenise(e.FeatureStructure, "")
+	avm, err := avmGrammar.Parse(tokens)
+	if err != nil {
+		return nil, err
+	}
+	e.avm = avm.(*syntax.AVM)
+	return e.avm, nil
 }
 
 // Analyser ...
@@ -119,7 +160,7 @@ func main() {
 			fmt.Fprintln(os.Stderr, "cannot list forms:", err)
 			os.Exit(1)
 		}
-	} else if parserPlugin != "" {
+	} else if parserPlugin != "" && chartInput != "" {
 		plugin, err := plugin.Open(parserPlugin)
 		if err != nil {
 			fmt.Fprintln(os.Stderr, "cannot open parser plugin:", err)
@@ -135,7 +176,64 @@ func main() {
 			fmt.Fprintln(os.Stderr, "invalid parser plugin (mistyped Parse function)")
 			os.Exit(1)
 		}
-		fmt.Printf("%T\n", parse)
+		an, err := loadLex(flag.Args())
+		if err != nil {
+			fmt.Fprintln(os.Stderr, "cannot load lexicon:", err)
+			os.Exit(1)
+		}
+		var tokeniser textkit.Tokeniser
+		tokens := tokeniser.Tokenise(chartInput, "")
+		chart := syntax.NewChart()
+		for i, token := range tokens {
+			if token.Type == textkit.EOF {
+				continue
+			}
+			form := string(token.Form)
+			entries, err := an.Analyse(form)
+			if err != nil {
+				fmt.Fprintln(os.Stderr, "cannot analyse entry:", err)
+				os.Exit(1)
+			}
+			start, end := i+1, i+2
+			if len(entries) >= 1 {
+				for _, entry := range entries {
+					if entry.Category == "" || entry.FeatureStructure == "" {
+						fmt.Fprintf(os.Stderr, "no category and/or feature structure for '%s' (tag '%s')\n", form, entry.Tag)
+						os.Exit(1)
+					}
+					avm, err := entry.AVM()
+					if err != nil {
+						fmt.Fprintln(os.Stderr, "cannot parse AVM:", err)
+						fmt.Fprintln(os.Stderr, entry.Tag, entry.FeatureStructure)
+						os.Exit(1)
+					}
+					if entry.Autosemantic {
+						avm.Set("lemma", syntax.String(entry.Lemma))
+						avm.Set("index", syntax.String(strconv.Itoa(start)))
+					}
+					chart.AddEdge(&syntax.Edge{
+						Start:    start,
+						End:      end,
+						Category: entry.Category,
+						AVM:      avm,
+					})
+				}
+			} else {
+				chart.AddEdge(&syntax.Edge{
+					Start:    start,
+					End:      end,
+					Category: "U",
+					AVM: &syntax.AVM{Features: map[string]syntax.AVMValue{
+						"form":  syntax.String(form),
+						"index": syntax.String(strconv.Itoa(start)),
+					}},
+				})
+			}
+		}
+		chart.Print(os.Stdout)
+		fmt.Printf("\n")
+		parse(chart)
+		chart.Print(os.Stdout)
 	} else if chartInput != "" {
 		an, err := loadLex(flag.Args())
 		if err != nil {

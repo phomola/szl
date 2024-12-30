@@ -1,5 +1,10 @@
 package syntax
 
+import (
+	"fmt"
+	"io"
+)
+
 // Edge is a chart edge.
 type Edge struct {
 	Start    int
@@ -10,4 +15,9 @@ type Edge struct {
 	Children []*Edge
 	Level    int
 	Used     bool
+}
+
+// Print prints the edge.
+func (e *Edge) Print(w io.Writer) {
+	fmt.Fprintf(w, "-%d- %s %s -%d-\n", e.Start, e.Category, e.AVM.String(), e.End)
 }
