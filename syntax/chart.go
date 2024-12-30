@@ -52,6 +52,19 @@ func (ch *Chart) Print(w io.Writer, onlyUnused bool) {
 	}
 }
 
+// GetEdges returns the edges from start to end.
+func (ch *Chart) GetEdges(start, end int, onlyUnused bool) []*Edge {
+	var edges []*Edge
+	for _, e := range ch.edges[start] {
+		if e.End == end {
+			if !onlyUnused || !e.Used {
+				edges = append(edges, e)
+			}
+		}
+	}
+	return edges
+}
+
 // Parse parses the chart using the provided apply function.
 func (ch *Chart) Parse(apply func([]*Edge) (string, *AVM)) {
 	ch.parse(apply, 0)

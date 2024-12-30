@@ -40,12 +40,14 @@ type Replacement struct {
 
 // Entry ...
 type Entry struct {
+	Form             string
 	Lemma            string
 	Tag              string
 	Category         string
 	FeatureStructure string
 	Autosemantic     bool
 	avm              *syntax.AVM
+	Info             map[string]interface{}
 }
 
 var avmGrammar *lrparser.Grammar
@@ -97,18 +99,13 @@ type Analyser struct {
 
 // Analyse ...
 func (an *Analyser) Analyse(form string) ([]*Entry, error) {
-	if an.Entries == nil {
-		if err := an.buildEntries(); err != nil {
-			return nil, err
-		}
-	}
 	if entries, ok := an.Entries[form]; ok {
 		return entries, nil
 	}
 	return nil, nil
 }
 
-func (an *Analyser) buildEntries() error {
+func (an *Analyser) buildEntries(substReplacer *strings.Replacer) error {
 	an.Entries = make(map[string][]*Entry)
 	for _, stems := range an.Stems {
 		for _, stem := range stems {
@@ -119,9 +116,15 @@ func (an *Analyser) buildEntries() error {
 			for _, end := range ends {
 				form := replacer.Replace(stem.Form, end.Replacements) + end.Form
 				form = an.Replacer.Replace(form)
+				origForm := form
+				if substReplacer != nil {
+					form = substReplacer.Replace(form)
+				}
 				entry := &Entry{
+					Form:  form,
 					Lemma: stem.Lemma,
 					Tag:   end.Tag,
+					Info:  map[string]interface{}{"origForm": origForm},
 				}
 				if fs, ok := an.FeatureStructures[end.Tag]; ok {
 					entry.Category = fs[0]
@@ -141,17 +144,32 @@ func main() {
 		list         bool
 		chartInput   string
 		parserPlugin string
+		subst        string
 	)
 	flag.BoolVar(&list, "list", false, "list all forms (takes file name(s) of lexicon files)")
 	flag.StringVar(&chartInput, "chart", "", "chart for the input phrase (takes file name(s) of lexicon files)")
 	flag.StringVar(&parserPlugin, "parser", "", "parser plugin")
+	flag.StringVar(&subst, "subst", "", "letter substitutions")
 	flag.Parse()
+	var substReplacer *strings.Replacer
+	if subst != "" {
+		var pairs []string
+		for _, rewr := range strings.Split(subst, ",") {
+			old, new, ok := strings.Cut(rewr, ">")
+			if !ok {
+				fmt.Fprintln(os.Stderr, "cannot analyse substitutions:", subst)
+				os.Exit(1)
+			}
+			pairs = append(pairs, old, new)
+		}
+		substReplacer = strings.NewReplacer(pairs...)
+	}
 	if list {
 		if flag.NArg() == 0 {
 			fmt.Fprintln(os.Stderr, "no input files")
 			os.Exit(1)
 		}
-		an, err := loadLex(flag.Args())
+		an, err := loadLex(flag.Args(), substReplacer)
 		if err != nil {
 			fmt.Fprintln(os.Stderr, "cannot load lexicon:", err)
 			os.Exit(1)
@@ -176,7 +194,7 @@ func main() {
 			fmt.Fprintln(os.Stderr, "invalid parser plugin (mistyped Parse function)")
 			os.Exit(1)
 		}
-		an, err := loadLex(flag.Args())
+		an, err := loadLex(flag.Args(), substReplacer)
 		if err != nil {
 			fmt.Fprintln(os.Stderr, "cannot load lexicon:", err)
 			os.Exit(1)
@@ -218,6 +236,7 @@ func main() {
 						Form:     form,
 						Category: entry.Category,
 						AVM:      avm,
+						Info:     entry.Info,
 					})
 				}
 			} else {
@@ -238,9 +257,17 @@ func main() {
 		chart.Parse(apply)
 		chart.Print(os.Stdout, true)
 		fmt.Printf("\n")
-		fmt.Println("#", endNode)
+		for _, edge := range chart.GetEdges(1, endNode, true) {
+			forms := edge.Linearise(func(e *syntax.Edge) string {
+				if of, ok := e.Info["origForm"]; ok {
+					return of.(string)
+				}
+				return e.Form
+			})
+			fmt.Println(strings.Join(forms, " "))
+		}
 	} else if chartInput != "" {
-		an, err := loadLex(flag.Args())
+		an, err := loadLex(flag.Args(), substReplacer)
 		if err != nil {
 			fmt.Fprintln(os.Stderr, "cannot load lexicon:", err)
 			os.Exit(1)
@@ -297,7 +324,7 @@ func listForms(an *Analyser) error {
 	return nil
 }
 
-func loadLex(files []string) (*Analyser, error) {
+func loadLex(files []string, substReplacer *strings.Replacer) (*Analyser, error) {
 	var (
 		stems             = make(map[string][]Stem)
 		endings           = make(map[string][]Ending)
@@ -394,10 +421,14 @@ func loadLex(files []string) (*Analyser, error) {
 		pairs = append(pairs, r.Old, r.New)
 	}
 	replacer := strings.NewReplacer(pairs...)
-	return &Analyser{
+	an := &Analyser{
 		Stems:             stems,
 		Endings:           endings,
 		Replacer:          replacer,
 		FeatureStructures: featureStructures,
-	}, nil
+	}
+	if err := an.buildEntries(substReplacer); err != nil {
+		return nil, err
+	}
+	return an, nil
 }
