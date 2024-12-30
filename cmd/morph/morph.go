@@ -7,9 +7,11 @@ import (
 	"fmt"
 	"io"
 	"os"
+	"plugin"
 	"strings"
 
 	"github.com/fealsamh/go-utils/replacer"
+	"github.com/phomola/szl/syntax"
 	"github.com/phomola/textkit"
 )
 
@@ -95,11 +97,13 @@ func (an *Analyser) buildEntries() error {
 
 func main() {
 	var (
-		list       bool
-		chartInput string
+		list         bool
+		chartInput   string
+		parserPlugin string
 	)
 	flag.BoolVar(&list, "list", false, "list all forms (takes file name(s) of lexicon files)")
 	flag.StringVar(&chartInput, "chart", "", "chart for the input phrase (takes file name(s) of lexicon files)")
+	flag.StringVar(&parserPlugin, "parser", "", "parser plugin")
 	flag.Parse()
 	if list {
 		if flag.NArg() == 0 {
@@ -115,6 +119,23 @@ func main() {
 			fmt.Fprintln(os.Stderr, "cannot list forms:", err)
 			os.Exit(1)
 		}
+	} else if parserPlugin != "" {
+		plugin, err := plugin.Open(parserPlugin)
+		if err != nil {
+			fmt.Fprintln(os.Stderr, "cannot open parser plugin:", err)
+			os.Exit(1)
+		}
+		parseSymbol, err := plugin.Lookup("Parse")
+		if err != nil {
+			fmt.Fprintln(os.Stderr, "invalid parser plugin (missing Parse function):", err)
+			os.Exit(1)
+		}
+		parse, ok := parseSymbol.(func(*syntax.Chart))
+		if !ok {
+			fmt.Fprintln(os.Stderr, "invalid parser plugin (mistyped Parse function)")
+			os.Exit(1)
+		}
+		fmt.Printf("%T\n", parse)
 	} else if chartInput != "" {
 		an, err := loadLex(flag.Args())
 		if err != nil {
