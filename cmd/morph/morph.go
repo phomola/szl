@@ -166,12 +166,12 @@ func main() {
 			fmt.Fprintln(os.Stderr, "cannot open parser plugin:", err)
 			os.Exit(1)
 		}
-		parseSymbol, err := plugin.Lookup("Parse")
+		applySymbol, err := plugin.Lookup("Apply")
 		if err != nil {
 			fmt.Fprintln(os.Stderr, "invalid parser plugin (missing Parse function):", err)
 			os.Exit(1)
 		}
-		parse, ok := parseSymbol.(func(*syntax.Chart))
+		apply, ok := applySymbol.(func([]*syntax.Edge) (string, *syntax.AVM))
 		if !ok {
 			fmt.Fprintln(os.Stderr, "invalid parser plugin (mistyped Parse function)")
 			os.Exit(1)
@@ -183,6 +183,7 @@ func main() {
 		}
 		var tokeniser textkit.Tokeniser
 		tokens := tokeniser.Tokenise(chartInput, "")
+		endNode := len(tokens)
 		chart := syntax.NewChart()
 		for i, token := range tokens {
 			if token.Type == textkit.EOF {
@@ -214,6 +215,7 @@ func main() {
 					chart.AddEdge(&syntax.Edge{
 						Start:    start,
 						End:      end,
+						Form:     form,
 						Category: entry.Category,
 						AVM:      avm,
 					})
@@ -222,6 +224,7 @@ func main() {
 				chart.AddEdge(&syntax.Edge{
 					Start:    start,
 					End:      end,
+					Form:     form,
 					Category: "U",
 					AVM: &syntax.AVM{Features: map[string]syntax.AVMValue{
 						"form":  syntax.String(form),
@@ -230,10 +233,12 @@ func main() {
 				})
 			}
 		}
-		chart.Print(os.Stdout)
+		chart.Print(os.Stdout, false)
 		fmt.Printf("\n")
-		parse(chart)
-		chart.Print(os.Stdout)
+		chart.Parse(apply)
+		chart.Print(os.Stdout, true)
+		fmt.Printf("\n")
+		fmt.Println("#", endNode)
 	} else if chartInput != "" {
 		an, err := loadLex(flag.Args())
 		if err != nil {

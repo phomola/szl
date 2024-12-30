@@ -19,5 +19,5 @@ type Edge struct {
 
 // Print prints the edge.
 func (e *Edge) Print(w io.Writer) {
-	fmt.Fprintf(w, "-%d- %s %s -%d-\n", e.Start, e.Category, e.AVM.String(), e.End)
+	fmt.Fprintf(w, "-%d- %s %s %s -%d-\n", e.Start, e.Form, e.Category, e.AVM.String(), e.End)
 }
