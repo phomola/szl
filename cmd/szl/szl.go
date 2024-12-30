@@ -160,7 +160,7 @@ func main() {
 				fmt.Fprintln(os.Stderr, "cannot analyse substitutions:", subst)
 				os.Exit(1)
 			}
-			pairs = append(pairs, old, new)
+			pairs = append(pairs, strings.ToLower(old), strings.ToLower(new), strings.ToUpper(old), strings.ToUpper(new))
 		}
 		substReplacer = strings.NewReplacer(pairs...)
 	}
