@@ -11,11 +11,11 @@
 
 # paradigms
 
--a1 af1s ŏ
+-a1 af1s o
 -a1 af2s ij
 -a1 af3s ij
--a1 af4s õ
--a1 af5s ŏ
+-a1 af4s o
+-a1 af5s o
 -a1 af6s ij
 -a1 af7s ōm
 -a1 af1p i
@@ -62,7 +62,7 @@
 -nf1 nf1s a
 -nf1 nf2s y
 -nf1 nf3s 'e
--nf1 nf4s ã
+-nf1 nf4s a
 -nf1 nf5s o
 -nf1 nf6s 'e
 -nf1 nf7s ōm
