@@ -2,6 +2,26 @@
 ### Silesian morphology - for experiments ###
 #############################################
 
+### paradigms
+
+## substantives
+
+# m1 chłop
+# m2 dōmb
+# m3 gorol
+# m4 nōż
+# m5 gazda
+
+# f1 ryba
+# f2 studnia
+# f3 kuchyń
+# f4 kość
+
+# n1 miasto
+# n2 pole
+# n3 kozani
+# n4 cielã
+
 # stems
 
 @chłop nm1 chłop
