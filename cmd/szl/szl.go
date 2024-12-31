@@ -130,6 +130,8 @@ func (an *Analyser) buildEntries(substReplacer *strings.Replacer) error {
 					entry.Category = fs[0]
 					entry.FeatureStructure = fs[1]
 					entry.Autosemantic = fs[2] == "autosem"
+				} else {
+					return fmt.Errorf("missing feature structure for '%s'", end.Tag)
 				}
 				entries := an.Entries[form]
 				an.Entries[form] = append(entries, entry)
