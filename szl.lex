@@ -7,10 +7,12 @@
 ## substantives
 
 # m1 chłop
-# m2 dōmb
-# m3 gorol
-# m4 nōż
-# m5 gazda
+# m2 pies
+# m3 dōmb
+# m4 gorol
+# m5 kóń
+# m6 nōż
+# m7 gazda
 
 # f1 ryba
 # f2 studnia
@@ -22,34 +24,24 @@
 # n3 kozani
 # n4 cielã
 
+## adjectives
+
+# a1 dobry
+# a2 głupi
+
 # stems
 
 @chłop nm1 chłop
-@lōd nm2 l{ō}d
+@pies nm2 p{ie}s
+@lōd nm3 l{ō}d
 @hołda nf1 hołd
-@wysoki a1 wysok
+@wysoki a2 wysok
 
 # paradigms
-
--a1 af1s ŏ
--a1 af2s ij
--a1 af3s ij
--a1 af4s õ
--a1 af5s ŏ
--a1 af6s ij
--a1 af7s ōm
--a1 af1p i
--a1 af2p ich
--a1 af3p im
--a1 af4p i
--a1 af5p i
--a1 af6p ich
--a1 af7p imi
 
 -nm1 nmh1s 0
 -nm1 nmh2s a
 -nm1 nmh3s u
--nm1 nmh3s owi
 -nm1 nmh4s a
 -nm1 nmh5s 'e
 -nm1 nmh6s 'e
@@ -62,22 +54,35 @@
 -nm1 nmh6p ach
 -nm1 nmh7p ami
 
--nm2 nmh1s 0
--nm2 nmh2s a >ō,o
--nm2 nmh2s u >ō,o
--nm2 nmh3s u >ō,o
--nm2 nmh3s owi >ō,o
--nm2 nmh4s 0
--nm2 nmh5s 'e >ō,o
--nm2 nmh6s 'e >ō,o
--nm2 nmh7s ym >ō,o
--nm2 nmh1p y >ō,o
--nm2 nmh2p ōw >ō,o
--nm2 nmh3p ōm >ō,o
--nm2 nmh4p y >ō,o
--nm2 nmh5p y >ō,o
--nm2 nmh6p ach >ō,o
--nm2 nmh7p ami >ō,o
+-nm2 nm1s 0
+-nm2 nm2s a >ō,o >ie,0
+-nm2 nm3s u >ō,o >ie,0
+-nm2 nm4s a >ō,o >ie,0
+-nm2 nm5s 'e >ō,o >ie,0
+-nm2 nm6s 'e >ō,o >ie,0
+-nm2 nm7s ym >ō,o >ie,0
+-nm2 nm1p y >ō,o >ie,0
+-nm2 nm2p ōw >ō,o >ie,0
+-nm2 nm3p ōm >ō,o >ie,0
+-nm2 nm4p y >ō,o >ie,0
+-nm2 nm5p y >ō,o >ie,0
+-nm2 nm6p ach >ō,o >ie,0
+-nm2 nm7p ami >ō,o >ie,0
+
+-nm3 nm1s 0
+-nm3 nm2s a >ō,o
+-nm3 nm3s u >ō,o
+-nm3 nm4s 0
+-nm3 nm5s 'e >ō,o
+-nm3 nm6s 'e >ō,o
+-nm3 nm7s ym >ō,o
+-nm3 nm1p y >ō,o
+-nm3 nm2p ōw >ō,o
+-nm3 nm3p ōm >ō,o
+-nm3 nm4p y >ō,o
+-nm3 nm5p y >ō,o
+-nm3 nm6p ach >ō,o
+-nm3 nm7p ami >ō,o
 
 -nf1 nf1s a
 -nf1 nf2s y
@@ -94,11 +99,30 @@
 -nf1 nf6p ach
 -nf1 nf7p ami
 
+-a2 af1s 'ŏ
+-a2 af2s ij
+-a2 af3s ij
+-a2 af4s 'õ
+-a2 af5s 'ŏ
+-a2 af6s ij
+-a2 af7s 'ōm
+-a2 af1p i
+-a2 af2p ich
+-a2 af3p im
+-a2 af4p i
+-a2 af5p i
+-a2 af6p ich
+-a2 af7p imi
+
 # replacements
 
 !> p'e pie
 !> d'e dzie
+!> s'e sie
 !> p'i pi
+!> k'ŏ kŏ
+!> k'õ kõ
+!> k'ō kō
 
 # feature structures
 
@@ -116,6 +140,21 @@
 *nmh5p N [gender:"m",anim:"hum",case:"voc",number:"pl"] autosem
 *nmh6p N [gender:"m",anim:"hum",case:"loc",number:"pl"] autosem
 *nmh7p N [gender:"m",anim:"hum",case:"ins",number:"pl"] autosem
+
+*nm1s N [gender:"m",anim:"nhum",case:"nom",number:"sg"] autosem
+*nm2s N [gender:"m",anim:"nhum",case:"gen",number:"sg"] autosem
+*nm3s N [gender:"m",anim:"nhum",case:"dat",number:"sg"] autosem
+*nm4s N [gender:"m",anim:"nhum",case:"acc",number:"sg"] autosem
+*nm5s N [gender:"m",anim:"nhum",case:"voc",number:"sg"] autosem
+*nm6s N [gender:"m",anim:"nhum",case:"loc",number:"sg"] autosem
+*nm7s N [gender:"m",anim:"nhum",case:"ins",number:"sg"] autosem
+*nm1p N [gender:"m",anim:"nhum",case:"nom",number:"pl"] autosem
+*nm2p N [gender:"m",anim:"nhum",case:"gen",number:"pl"] autosem
+*nm3p N [gender:"m",anim:"nhum",case:"dat",number:"pl"] autosem
+*nm4p N [gender:"m",anim:"nhum",case:"acc",number:"pl"] autosem
+*nm5p N [gender:"m",anim:"nhum",case:"voc",number:"pl"] autosem
+*nm6p N [gender:"m",anim:"nhum",case:"loc",number:"pl"] autosem
+*nm7p N [gender:"m",anim:"nhum",case:"ins",number:"pl"] autosem
 
 *nf1s N [gender:"f",case:"nom",number:"sg"] autosem
 *nf2s N [gender:"f",case:"gen",number:"sg"] autosem

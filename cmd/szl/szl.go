@@ -378,6 +378,9 @@ func loadLex(files []string, substReplacer *strings.Replacer) (*Analyser, error)
 								if repl == nil {
 									repl = make(map[string]string)
 								}
+								if new == "0" {
+									new = ""
+								}
 								repl[old] = new
 							} else {
 								return nil, fmt.Errorf("bad definition at line %d", l)
