@@ -55,6 +55,14 @@
 
 @kość nf4 kość
 
+@miasto nn1 mi{ast}
+
+@pole nn2 p{o}l
+
+@kozani nn3 kozań
+
+@cielã nn4 ciel
+
 @dobry a1 dobr
 
 @głupi a2 głup
@@ -227,6 +235,66 @@
 -nf4 nf6p ach
 -nf4 nf7p ami
 
+-nn1 nn1s o
+-nn1 nn2s a
+-nn1 nn3s u
+-nn1 nn4s o
+-nn1 nn5s o
+-nn1 nn6s 'e >ast,eśc
+-nn1 nn7s ym
+-nn1 nn1p a
+-nn1 nn2p 0
+-nn1 nn3p ōm
+-nn1 nn4p a
+-nn1 nn5p a
+-nn1 nn6p ach
+-nn1 nn7p ami
+
+-nn2 nn1s e
+-nn2 nn2s a
+-nn2 nn3s u
+-nn2 nn4s e
+-nn2 nn5s e
+-nn2 nn6s u
+-nn2 nn7s ym
+-nn2 nn1p a
+-nn2 nn2p 0 >o,ó
+-nn2 nn3p ōm
+-nn2 nn4p a
+-nn2 nn5p a
+-nn2 nn6p ach
+-nn2 nn7p ami
+
+-nn3 nn1s i
+-nn3 nn2s ŏ
+-nn3 nn3s u
+-nn3 nn4s i
+-nn3 nn5s i
+-nn3 nn6s u
+-nn3 nn7s im
+-nn3 nn1p a
+-nn3 nn2p 0
+-nn3 nn3p ōm
+-nn3 nn4p a
+-nn3 nn5p a
+-nn3 nn6p ach
+-nn3 nn7p ami
+
+-nn4 nn1s ã
+-nn4 nn2s yncia
+-nn4 nn3s ynciu
+-nn4 nn4s ã
+-nn4 nn5s ã
+-nn4 nn6s ynciu
+-nn4 nn7s ynciym
+-nn4 nn1p ynta
+-nn4 nn2p ōnt
+-nn4 nn3p yntōm
+-nn4 nn4p ynta
+-nn4 nn5p ynta
+-nn4 nn6p yntach
+-nn4 nn7p yntami
+
 -a1 am1s y
 -a1 am2s ego
 -a1 am3s ymu
@@ -332,6 +400,7 @@
 !> d'e dzie
 !> s'e sie
 !> b'e bie
+!> c'e cie
 !> p'i pi
 !> n'i ni
 !> r'i rzi
@@ -340,6 +409,7 @@
 !> k'õ kõ
 !> k'ō kō
 !> p'ŏ piŏ
+#!> n'ŏ niŏ
 !> p'õ piõ
 !> p'ō piō
 !> n'ō niō
@@ -348,6 +418,7 @@
 !> ńy niy
 !> ńi ni
 !> ńe nie
+!> ńŏ niŏ
 !> ńō niō
 !> ća cia
 !> ću ciu
