@@ -24,6 +24,8 @@
 # n3 kozani
 # n4 cielã
 
+# v4 vołać
+
 ## adjectives
 
 # a1 dobry
@@ -67,6 +69,8 @@
 
 @głupi a2 głup
 @wysoki a2 wysok
+
+@vołać v4 voł
 
 # paradigms
 
@@ -391,6 +395,14 @@
 -a2 an6p ich
 -a2 an7p imi
 
+-v4 vinf ać
+-v4 vpr1s ōm
+-v4 vpr2s ŏsz
+-v4 vpr3s ŏ
+-v4 vpr1p ōmy
+-v4 vpr2p ŏcie
+-v4 vpr1p ajōm
+
 # replacements ("two-level" morphology)
 
 !> n'a nia
@@ -428,6 +440,14 @@
 !> ćō ciō
 
 # feature structures
+
+*vinf V [vform:"inf"] autosem
+*vpr1s V [vform:"fin",person:"1",number:"sg",tense:"pres"] autosem
+*vpr2s V [vform:"fin",person:"2",number:"sg",tense:"pres"] autosem
+*vpr3s V [vform:"fin",person:"3",number:"sg",tense:"pres"] autosem
+*vpr1p V [vform:"fin",person:"1",number:"pl",tense:"pres"] autosem
+*vpr2p V [vform:"fin",person:"2",number:"pl",tense:"pres"] autosem
+*vpr3p V [vform:"fin",person:"3",number:"pl",tense:"pres"] autosem
 
 *nmh1s N [gender:"m",anim:"hum",case:"nom",number:"sg"] autosem
 *nmh2s N [gender:"m",anim:"hum",case:"gen",number:"sg"] autosem
