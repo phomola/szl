@@ -24,6 +24,8 @@
 # n3 kozani
 # n4 cielã
 
+# v4a nosić
+# v4b bŏczyć
 # v5a vołać
 # v5b pisać
 # v6 kupować
@@ -73,6 +75,13 @@
 
 @głupi a2 głup
 @wysoki a2 wysok
+
+@nosić v4a nos
+@bawić v4a baw
+@pŏlić v4a pŏl
+@zestarzić v4a zestar
+
+@bŏczyć v4b bŏc
 
 @vołać v5a voł
 
@@ -402,6 +411,166 @@
 -a2 an5p i
 -a2 an6p ich
 -a2 an7p imi
+
+-v4a vinf 'ić
+-v4a vtr "ōncy
+-v4a vn1s "yni
+-v4a vn2s "yniŏ
+-v4a vn3s "yniu
+-v4a vn4s "yni
+-v4a vn5s "yni
+-v4a vn6s "yniu
+-v4a vn7s "ynim
+-v4a vn1p "ynia
+-v4a vn2p "yni
+-v4a vn3p "yniōm
+-v4a vn4p "ynia
+-v4a vn5p "ynia
+-v4a vn6p "yniach
+-v4a vn7p "yniami
+
+-v4a vimp2s '
+-v4a vimp1p 'my
+-v4a vimp2p 'cie
+
+-v4a vpr1s "ym
+-v4a vpr2s isz
+-v4a vpr3s "y
+-v4a vpr1p "ymy
+-v4a vpr2p icie
+-v4a vpr1p "ōm
+
+-v4a vpsms 'ił
+-v4a vpsfs 'iła
+-v4a vpsns 'iło
+-v4a vpsmhp 'ili
+-v4a vpsp 'iły
+
+-v4a vam1s "ōny
+-v4a vam2s "ōnego
+-v4a vam3s "ōnymu
+-v4a vamh4s "ōnego
+-v4a vamn4s "ōny
+-v4a vam5s "ōny
+-v4a vam6s "ōnym
+-v4a vam7s "ōnym
+-v4a vamh1p "ōni
+-v4a vamn1p "ōne
+-v4a vam2p "ōnych
+-v4a vam3p "ōnym
+-v4a vamh4p "ōnych
+-v4a vamn4p "ōne
+-v4a vam5p "ōne
+-v4a vam6p "ōnych
+-v4a vam7p "ōnymi
+-v4a vaf1s "ōnŏ
+-v4a vaf2s "ōnej
+-v4a vaf3s "ōnej
+-v4a vaf4s "ōnõ
+-v4a vaf5s "ōnŏ
+-v4a vaf6s "ōnej
+-v4a vaf7s "ōnōm
+-v4a vaf1p "ōne
+-v4a vaf2p "ōnych
+-v4a vaf3p "ōnym
+-v4a vaf4p "ōne
+-v4a vaf5p "ōne
+-v4a vaf6p "ōnych
+-v4a vaf7p "ōnymi
+-v4a van1s "ōne
+-v4a van2s "ōnego
+-v4a van3s "ōnymu
+-v4a van4s "ōne
+-v4a van5s "ōne
+-v4a van6s "ōnym
+-v4a van7s "ōnym
+-v4a van1p "ōne
+-v4a van2p "ōnych
+-v4a van3p "ōnym
+-v4a van4p "ōne
+-v4a van5p "ōne
+-v4a van6p "ōnych
+-v4a van7p "ōnymi
+
+-v4b vinf "yć
+-v4b vtr "ōncy
+-v4b vn1s "yni
+-v4b vn2s "yniŏ
+-v4b vn3s "yniu
+-v4b vn4s "yni
+-v4b vn5s "yni
+-v4b vn6s "yniu
+-v4b vn7s "ynim
+-v4b vn1p "ynia
+-v4b vn2p "yni
+-v4b vn3p "yniōm
+-v4b vn4p "ynia
+-v4b vn5p "ynia
+-v4b vn6p "yniach
+-v4b vn7p "yniami
+
+-v4b vimp2s "
+-v4b vimp1p "my
+-v4b vimp2p "cie
+
+-v4b vpr1s "ym
+-v4b vpr2s "ysz
+-v4b vpr3s "y
+-v4b vpr1p "ymy
+-v4b vpr2p "ycie
+-v4b vpr1p "ōm
+
+-v4b vpsms "ył
+-v4b vpsfs "yła
+-v4b vpsns "yło
+-v4b vpsmhp "yli
+-v4b vpsp "yły
+
+-v4b vam1s "ōny
+-v4b vam2s "ōnego
+-v4b vam3s "ōnymu
+-v4b vamh4s "ōnego
+-v4b vamn4s "ōny
+-v4b vam5s "ōny
+-v4b vam6s "ōnym
+-v4b vam7s "ōnym
+-v4b vamh1p "ōni
+-v4b vamn1p "ōne
+-v4b vam2p "ōnych
+-v4b vam3p "ōnym
+-v4b vamh4p "ōnych
+-v4b vamn4p "ōne
+-v4b vam5p "ōne
+-v4b vam6p "ōnych
+-v4b vam7p "ōnymi
+-v4b vaf1s "ōnŏ
+-v4b vaf2s "ōnej
+-v4b vaf3s "ōnej
+-v4b vaf4s "ōnõ
+-v4b vaf5s "ōnŏ
+-v4b vaf6s "ōnej
+-v4b vaf7s "ōnōm
+-v4b vaf1p "ōne
+-v4b vaf2p "ōnych
+-v4b vaf3p "ōnym
+-v4b vaf4p "ōne
+-v4b vaf5p "ōne
+-v4b vaf6p "ōnych
+-v4b vaf7p "ōnymi
+-v4b van1s "ōne
+-v4b van2s "ōnego
+-v4b van3s "ōnymu
+-v4b van4s "ōne
+-v4b van5s "ōne
+-v4b van6s "ōnym
+-v4b van7s "ōnym
+-v4b van1p "ōne
+-v4b van2p "ōnych
+-v4b van3p "ōnym
+-v4b van4p "ōne
+-v4b van5p "ōne
+-v4b van6p "ōnych
+-v4b van7p "ōnymi
 
 -v5a vinf ać
 -v5a vtr ajōncy
@@ -854,6 +1023,7 @@
 !> c'e cie
 !> p'i pi
 !> n'i ni
+!> d'i dzi
 !> r'i rzi
 !> n'o nio
 !> k'ŏ kŏ
@@ -864,6 +1034,18 @@
 !> p'õ piõ
 !> p'ō piō
 !> n'ō niō
+!> w"ō wiō
+!> w"yn wiyn
+!> w"ym wiym
+!> w"y wi
+!> l"ō lō
+!> l"yn lyn
+!> l"ym lym
+!> l"y li
+!> r"ō rzō
+!> r"yn rzyn
+!> r"ym rzym
+!> r"y rzi
 !> ńa nia
 !> ńu niu
 !> ńy niy
@@ -877,5 +1059,10 @@
 !> ći ci
 !> će cie
 !> ćō ciō
+!> s' ś
+!> w' w
+!> l' l
+!> r' rz
 !> s" sz
+!> c" cz
 !> z" ż
