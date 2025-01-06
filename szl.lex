@@ -24,6 +24,10 @@
 # n3 kozani
 # n4 cielã
 
+# v1a niyść
+# v1b ciōnć
+# v1c trzić
+# v1d bić
 # v2a stanyć
 # v2b zamknyć
 # v3a umieć
@@ -77,6 +81,17 @@
 @dobry a1 dobr
 @mokry a1 mokr
 @szkaredy a1 szkared
+
+@niyść v1a ni{e}s
+@lyść v1a l{e}z
+@plyść v1a pl{e}t
+@kraść v1a kr{a}d
+
+#@ciōnć v1b ciōnć
+
+#@trzić v1c trzić
+
+#@bić v1d bić
 
 @głupi a2 głup
 @wysoki a2 wysok
@@ -432,6 +447,86 @@
 -a2 an5p i
 -a2 an6p ich
 -a2 an7p imi
+
+-v1a vinf 'ć >e,y
+-v1a vtr 'ōncy
+-v1a vn1s 'yni
+-v1a vn2s 'yniŏ
+-v1a vn3s 'yniu
+-v1a vn4s 'yni
+-v1a vn5s 'yni
+-v1a vn6s 'yniu
+-v1a vn7s 'ynim
+-v1a vn1p 'ynia
+-v1a vn2p 'yni
+-v1a vn3p 'yniōm
+-v1a vn4p 'ynia
+-v1a vn5p 'ynia
+-v1a vn6p 'yniach
+-v1a vn7p 'yniami
+
+-v1a vimp2s ' >e,y
+-v1a vimp1p 'my >e,y
+-v1a vimp2p 'cie >e,y
+
+-v1a vpr1s ym
+-v1a vpr2s 'esz
+-v1a vpr3s 'e
+-v1a vpr1p ymy
+-v1a vpr2p 'ecie
+-v1a vpr1p ōm
+
+-v1a vpsms 0 >e,ō >a,o
+-v1a vpsfs ła >e,y
+-v1a vpsns ło >e,y
+-v1a vpsmhp 'li >e,y
+-v1a vpsp ły >e,y
+
+-v1a vam1s 'ōny
+-v1a vam2s 'ōnego
+-v1a vam3s 'ōnymu
+-v1a vamh4s 'ōnego
+-v1a vamn4s 'ōny
+-v1a vam5s 'ōny
+-v1a vam6s 'ōnym
+-v1a vam7s 'ōnym
+-v1a vamh1p 'ōni
+-v1a vamn1p 'ōne
+-v1a vam2p 'ōnych
+-v1a vam3p 'ōnym
+-v1a vamh4p 'ōnych
+-v1a vamn4p 'ōne
+-v1a vam5p 'ōne
+-v1a vam6p 'ōnych
+-v1a vam7p 'ōnymi
+-v1a vaf1s 'ōnŏ
+-v1a vaf2s 'ōnej
+-v1a vaf3s 'ōnej
+-v1a vaf4s 'ōnõ
+-v1a vaf5s 'ōnŏ
+-v1a vaf6s 'ōnej
+-v1a vaf7s 'ōnōm
+-v1a vaf1p 'ōne
+-v1a vaf2p 'ōnych
+-v1a vaf3p 'ōnym
+-v1a vaf4p 'ōne
+-v1a vaf5p 'ōne
+-v1a vaf6p 'ōnych
+-v1a vaf7p 'ōnymi
+-v1a van1s 'ōne
+-v1a van2s 'ōnego
+-v1a van3s 'ōnymu
+-v1a van4s 'ōne
+-v1a van5s 'ōne
+-v1a van6s 'ōnym
+-v1a van7s 'ōnym
+-v1a van1p 'ōne
+-v1a van2p 'ōnych
+-v1a van3p 'ōnym
+-v1a van4p 'ōne
+-v1a van5p 'ōne
+-v1a van6p 'ōnych
+-v1a van7p 'ōnymi
 
 -v2a vinf nyć
 -v2a vtr nōncy
@@ -1434,6 +1529,14 @@
 
 # replacements ("two-level" morphology)
 
+!> t'l tl
+!> d'l dl
+!> t'ć ść
+!> d'ć ść
+!> t'y cy
+!> d'y dzy
+!> t'ō cō
+!> d'ō dzō
 !> n'a nia
 !> m'a mia
 !> p'a pia
@@ -1445,6 +1548,8 @@
 !> p'e pie
 !> d'e dzie
 !> s'e sie
+!> c'e cie
+!> t'e cie
 !> b'e bie
 !> m'e mie
 !> c'e cie
@@ -1470,6 +1575,8 @@
 !> p'ŏ piŏ
 !> p'õ piõ
 !> p'ō piō
+!> s'ō siō
+!> z'ō ziō
 !> m'ō miō
 !> n'ō niō
 !> w"ō wiō
@@ -1503,6 +1610,8 @@
 !> ćō ciō
 !> s' ś
 !> c' ć
+!> t' ć
+!> d' dź
 !> z' ź
 !> w' w
 !> p' p
@@ -1512,4 +1621,3 @@
 !> dz" dz
 !> s" sz
 !> c" c
-#!> z" ż
