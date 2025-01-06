@@ -66,6 +66,8 @@
 @cielã nn4 ciel
 
 @dobry a1 dobr
+@mokry a1 mokr
+@szkaredy a1 szkared
 
 @głupi a2 głup
 @wysoki a2 wysok
