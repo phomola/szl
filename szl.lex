@@ -80,6 +80,8 @@
 @bawić v4a baw
 @pŏlić v4a pŏl
 @zestarzić v4a zestar
+@wrazić v4a wraz
+@sōndzić v4a sōndz
 
 @bŏczyć v4b bŏc
 
@@ -1021,6 +1023,9 @@
 !> s'e sie
 !> b'e bie
 !> c'e cie
+!> s'i si
+!> c'i ci
+!> z'i zi
 !> p'i pi
 !> n'i ni
 !> d'i dzi
@@ -1060,9 +1065,11 @@
 !> će cie
 !> ćō ciō
 !> s' ś
+!> z' ź
 !> w' w
 !> l' l
 !> r' rz
+!> dz" dz
 !> s" sz
 !> c" cz
 !> z" ż
