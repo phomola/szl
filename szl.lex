@@ -24,7 +24,9 @@
 # n3 kozani
 # n4 cielã
 
-# v4 vołać
+# v5a vołać
+# v5b pisać
+# v6 kupować
 
 ## adjectives
 
@@ -72,7 +74,11 @@
 @głupi a2 głup
 @wysoki a2 wysok
 
-@vołać v4 voł
+@vołać v5a voł
+
+@pisać v5b pis
+
+@kupować v6 kup
 
 # paradigms
 
@@ -279,7 +285,7 @@
 -nn3 nn6s u
 -nn3 nn7s im
 -nn3 nn1p a
--nn3 nn2p 0
+-nn3 nn2p i
 -nn3 nn3p ōm
 -nn3 nn4p a
 -nn3 nn5p a
@@ -397,77 +403,260 @@
 -a2 an6p ich
 -a2 an7p imi
 
--v4 vinf ać
--v4 vtr ajōncy
+-v5a vinf ać
+-v5a vtr ajōncy
+-v5a vn1s ani
+-v5a vn2s aniŏ
+-v5a vn3s aniu
+-v5a vn4s ani
+-v5a vn5s ani
+-v5a vn6s aniu
+-v5a vn7s anim
+-v5a vn1p ania
+-v5a vn2p ani
+-v5a vn3p aniōm
+-v5a vn4p ania
+-v5a vn5p ania
+-v5a vn6p aniach
+-v5a vn7p aniami
 
--v4 vpr1s ōm
--v4 vpr2s ŏsz
--v4 vpr3s ŏ
--v4 vpr1p ōmy
--v4 vpr2p ŏcie
--v4 vpr1p ajōm
+-v5a vimp2s ej
+-v5a vimp1p ejmy
+-v5a vimp2p ejcie
 
--v4 vpsms oł
--v4 vpsfs ała
--v4 vpsns ało
--v4 vpsmhp ali
--v4 vpsp ały
+-v5a vpr1s ōm
+-v5a vpr2s ŏsz
+-v5a vpr3s ŏ
+-v5a vpr1p ōmy
+-v5a vpr2p ŏcie
+-v5a vpr1p ajōm
 
--v4 vam1s any
--v4 vam2s anego
--v4 vam3s anymu
--v4 vamh4s anego
--v4 vamn4s any
--v4 vam5s any
--v4 vam6s anym
--v4 vam7s anym
--v4 vamh1p ani
--v4 vamn1p ane
--v4 vam2p anych
--v4 vam3p anym
--v4 vamh4p anych
--v4 vamn4p ane
--v4 vam5p ane
--v4 vam6p anych
--v4 vam7p anymi
--v4 vaf1s anŏ
--v4 vaf2s anej
--v4 vaf3s anej
--v4 vaf4s anõ
--v4 vaf5s anŏ
--v4 vaf6s anej
--v4 vaf7s anōm
--v4 vaf1p ane
--v4 vaf2p anych
--v4 vaf3p anym
--v4 vaf4p ane
--v4 vaf5p ane
--v4 vaf6p anych
--v4 vaf7p anymi
--v4 van1s ane
--v4 van2s anego
--v4 van3s anymu
--v4 van4s ane
--v4 van5s ane
--v4 van6s anym
--v4 van7s anym
--v4 van1p ane
--v4 van2p anych
--v4 van3p anym
--v4 van4p ane
--v4 van5p ane
--v4 van6p anych
--v4 van7p anymi
+-v5a vpsms oł
+-v5a vpsfs ała
+-v5a vpsns ało
+-v5a vpsmhp ali
+-v5a vpsp ały
+
+-v5a vam1s any
+-v5a vam2s anego
+-v5a vam3s anymu
+-v5a vamh4s anego
+-v5a vamn4s any
+-v5a vam5s any
+-v5a vam6s anym
+-v5a vam7s anym
+-v5a vamh1p ani
+-v5a vamn1p ane
+-v5a vam2p anych
+-v5a vam3p anym
+-v5a vamh4p anych
+-v5a vamn4p ane
+-v5a vam5p ane
+-v5a vam6p anych
+-v5a vam7p anymi
+-v5a vaf1s anŏ
+-v5a vaf2s anej
+-v5a vaf3s anej
+-v5a vaf4s anõ
+-v5a vaf5s anŏ
+-v5a vaf6s anej
+-v5a vaf7s anōm
+-v5a vaf1p ane
+-v5a vaf2p anych
+-v5a vaf3p anym
+-v5a vaf4p ane
+-v5a vaf5p ane
+-v5a vaf6p anych
+-v5a vaf7p anymi
+-v5a van1s ane
+-v5a van2s anego
+-v5a van3s anymu
+-v5a van4s ane
+-v5a van5s ane
+-v5a van6s anym
+-v5a van7s anym
+-v5a van1p ane
+-v5a van2p anych
+-v5a van3p anym
+-v5a van4p ane
+-v5a van5p ane
+-v5a van6p anych
+-v5a van7p anymi
+
+-v5b vinf ać
+-v5b vtr ajōncy
+-v5b vn1s ani
+-v5b vn2s aniŏ
+-v5b vn3s aniu
+-v5b vn4s ani
+-v5b vn5s ani
+-v5b vn6s aniu
+-v5b vn7s anim
+-v5b vn1p ania
+-v5b vn2p ani
+-v5b vn3p aniōm
+-v5b vn4p ania
+-v5b vn5p ania
+-v5b vn6p aniach
+-v5b vn7p aniami
+
+-v5b vimp2s "
+-v5b vimp1p "my
+-v5b vimp2p "cie
+
+-v5b vpr1s "ym
+-v5b vpr2s "esz
+-v5b vpr3s "e
+-v5b vpr1p "ymy
+-v5b vpr2p "ecie
+-v5b vpr1p "ōm
+
+-v5b vpsms oł
+-v5b vpsfs ała
+-v5b vpsns ało
+-v5b vpsmhp ali
+-v5b vpsp ały
+
+-v5b vam1s any
+-v5b vam2s anego
+-v5b vam3s anymu
+-v5b vamh4s anego
+-v5b vamn4s any
+-v5b vam5s any
+-v5b vam6s anym
+-v5b vam7s anym
+-v5b vamh1p ani
+-v5b vamn1p ane
+-v5b vam2p anych
+-v5b vam3p anym
+-v5b vamh4p anych
+-v5b vamn4p ane
+-v5b vam5p ane
+-v5b vam6p anych
+-v5b vam7p anymi
+-v5b vaf1s anŏ
+-v5b vaf2s anej
+-v5b vaf3s anej
+-v5b vaf4s anõ
+-v5b vaf5s anŏ
+-v5b vaf6s anej
+-v5b vaf7s anōm
+-v5b vaf1p ane
+-v5b vaf2p anych
+-v5b vaf3p anym
+-v5b vaf4p ane
+-v5b vaf5p ane
+-v5b vaf6p anych
+-v5b vaf7p anymi
+-v5b van1s ane
+-v5b van2s anego
+-v5b van3s anymu
+-v5b van4s ane
+-v5b van5s ane
+-v5b van6s anym
+-v5b van7s anym
+-v5b van1p ane
+-v5b van2p anych
+-v5b van3p anym
+-v5b van4p ane
+-v5b van5p ane
+-v5b van6p anych
+-v5b van7p anymi
+
+-v6 vinf ować
+-v6 vtr ujōncy
+-v6 vn1s owani
+-v6 vn2s owaniŏ
+-v6 vn3s owaniu
+-v6 vn4s owani
+-v6 vn5s owani
+-v6 vn6s owaniu
+-v6 vn7s owanim
+-v6 vn1p owania
+-v6 vn2p owani
+-v6 vn3p owaniōm
+-v6 vn4p owania
+-v6 vn5p owania
+-v6 vn6p owaniach
+-v6 vn7p owaniami
+
+-v6 vimp2s uj
+-v6 vimp1p ujmy
+-v6 vimp2p ujcie
+
+-v6 vpr1s ujym
+-v6 vpr2s ujesz
+-v6 vpr3s uje
+-v6 vpr1p ujymy
+-v6 vpr2p ujecie
+-v6 vpr1p ujōm
+
+-v6 vpsms owoł
+-v6 vpsfs owała
+-v6 vpsns owało
+-v6 vpsmhp owali
+-v6 vpsp owały
+
+-v6 vam1s owany
+-v6 vam2s owanego
+-v6 vam3s owanymu
+-v6 vamh4s owanego
+-v6 vamn4s owany
+-v6 vam5s owany
+-v6 vam6s owanym
+-v6 vam7s owanym
+-v6 vamh1p owani
+-v6 vamn1p owane
+-v6 vam2p owanych
+-v6 vam3p owanym
+-v6 vamh4p owanych
+-v6 vamn4p owane
+-v6 vam5p owane
+-v6 vam6p owanych
+-v6 vam7p owanymi
+-v6 vaf1s owanŏ
+-v6 vaf2s owanej
+-v6 vaf3s owanej
+-v6 vaf4s owanõ
+-v6 vaf5s owanŏ
+-v6 vaf6s owanej
+-v6 vaf7s owanōm
+-v6 vaf1p owane
+-v6 vaf2p owanych
+-v6 vaf3p owanym
+-v6 vaf4p owane
+-v6 vaf5p owane
+-v6 vaf6p owanych
+-v6 vaf7p owanymi
+-v6 van1s owane
+-v6 van2s owanego
+-v6 van3s owanymu
+-v6 van4s owane
+-v6 van5s owane
+-v6 van6s owanym
+-v6 van7s owanym
+-v6 van1p owane
+-v6 van2p owanych
+-v6 van3p owanym
+-v6 van4p owane
+-v6 van5p owane
+-v6 van6p owanych
+-v6 van7p owanymi
 
 # valence frames
 
 %vołać V subj,obj?
 %vołać V subj,iobj
+%pisać V subj,obj?,iobj?
 
 # feature structures
 
 *vinf V [vform:"inf"] autosem
 *vtr V [vform:"trg"] autosem
+
+*vimp2s V [vform:"imp",person:"2",number:"sg",tense:"pres"] autosem
+*vimp1p V [vform:"imp",person:"1",number:"pl",tense:"pres"] autosem
+*vimp2p V [vform:"imp",person:"2",number:"pl",tense:"pres"] autosem
 
 *vpr1s V [vform:"fin",person:"1",number:"sg",tense:"pres"] autosem
 *vpr2s V [vform:"fin",person:"2",number:"sg",tense:"pres"] autosem
@@ -590,6 +779,21 @@
 *an6p A [gender:"n",case:"loc",number:"pl"] autosem
 *an7p A [gender:"n",case:"ins",number:"pl"] autosem
 
+*vn1s V [vform:"vnoun",gender:"n",case:"nom",number:"sg"] autosem
+*vn2s V [vform:"vnoun",gender:"n",case:"gen",number:"sg"] autosem
+*vn3s V [vform:"vnoun",gender:"n",case:"dat",number:"sg"] autosem
+*vn4s V [vform:"vnoun",gender:"n",case:"acc",number:"sg"] autosem
+*vn5s V [vform:"vnoun",gender:"n",case:"voc",number:"sg"] autosem
+*vn6s V [vform:"vnoun",gender:"n",case:"loc",number:"sg"] autosem
+*vn7s V [vform:"vnoun",gender:"n",case:"ins",number:"sg"] autosem
+*vn1p V [vform:"vnoun",gender:"n",case:"nom",number:"pl"] autosem
+*vn2p V [vform:"vnoun",gender:"n",case:"gen",number:"pl"] autosem
+*vn3p V [vform:"vnoun",gender:"n",case:"dat",number:"pl"] autosem
+*vn4p V [vform:"vnoun",gender:"n",case:"acc",number:"pl"] autosem
+*vn5p V [vform:"vnoun",gender:"n",case:"voc",number:"pl"] autosem
+*vn6p V [vform:"vnoun",gender:"n",case:"loc",number:"pl"] autosem
+*vn7p V [vform:"vnoun",gender:"n",case:"ins",number:"pl"] autosem
+
 *vam1s V [vform:"ppart",gender:"m",case:"nom",number:"sg"] autosem
 *vam2s V [vform:"ppart",gender:"m",case:"gen",number:"sg"] autosem
 *vam3s V [vform:"ppart",gender:"m",case:"dat",number:"sg"] autosem
@@ -673,3 +877,5 @@
 !> ći ci
 !> će cie
 !> ćō ciō
+!> s" sz
+!> z" ż
