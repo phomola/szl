@@ -24,6 +24,7 @@
 # n3 kozani
 # n4 cielã
 
+# v2 zamknyć
 # v3a umieć
 # v3b ciyrpieć
 # v3c leżeć
@@ -78,6 +79,8 @@
 
 @głupi a2 głup
 @wysoki a2 wysok
+
+@zamknyć v2 zamk
 
 @umieć v3a um
 
@@ -426,6 +429,86 @@
 -a2 an5p i
 -a2 an6p ich
 -a2 an7p imi
+
+-v2 vinf nyć
+-v2 vtr nōncy
+-v2 vn1s niyni
+-v2 vn2s niyniŏ
+-v2 vn3s niyniu
+-v2 vn4s niyni
+-v2 vn5s niyni
+-v2 vn6s niyniu
+-v2 vn7s niynim
+-v2 vn1p niynia
+-v2 vn2p niyni
+-v2 vn3p niyniōm
+-v2 vn4p niynia
+-v2 vn5p niynia
+-v2 vn6p niyniach
+-v2 vn7p niyniami
+
+-v2 vimp2s ni
+-v2 vimp1p nimy
+-v2 vimp2p nicie
+
+-v2 vpr1s nym
+-v2 vpr2s niesz
+-v2 vpr3s nie
+-v2 vpr1p nymy
+-v2 vpr2p niecie
+-v2 vpr1p nōm
+
+-v2 vpsms nył
+-v2 vpsfs ła
+-v2 vpsns ło
+-v2 vpsmhp li
+-v2 vpsp ły
+
+-v2 vam1s niōny
+-v2 vam2s niōnego
+-v2 vam3s niōnymu
+-v2 vamh4s niōnego
+-v2 vamn4s niōny
+-v2 vam5s niōny
+-v2 vam6s niōnym
+-v2 vam7s niōnym
+-v2 vamh1p niōni
+-v2 vamn1p niōne
+-v2 vam2p niōnych
+-v2 vam3p niōnym
+-v2 vamh4p niōnych
+-v2 vamn4p niōne
+-v2 vam5p niōne
+-v2 vam6p niōnych
+-v2 vam7p niōnymi
+-v2 vaf1s niōnŏ
+-v2 vaf2s niōnej
+-v2 vaf3s niōnej
+-v2 vaf4s niōnõ
+-v2 vaf5s niōnŏ
+-v2 vaf6s niōnej
+-v2 vaf7s niōnōm
+-v2 vaf1p niōne
+-v2 vaf2p niōnych
+-v2 vaf3p niōnym
+-v2 vaf4p niōne
+-v2 vaf5p niōne
+-v2 vaf6p niōnych
+-v2 vaf7p niōnymi
+-v2 van1s niōne
+-v2 van2s niōnego
+-v2 van3s niōnymu
+-v2 van4s niōne
+-v2 van5s niōne
+-v2 van6s niōnym
+-v2 van7s niōnym
+-v2 van1p niōne
+-v2 van2p niōnych
+-v2 van3p niōnym
+-v2 van4p niōne
+-v2 van5p niōne
+-v2 van6p niōnych
+-v2 van7p niōnymi
 
 -v3a vinf 'eć
 -v3a vtr 'ōncy
