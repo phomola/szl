@@ -55,6 +55,31 @@ func Apply(edges []*syntax.Edge) (string, *syntax.AVM) {
 				}
 			}
 		}
+		// V -> V NP -- iobj
+		if e1.Category == "V" && e2.Category == "NP" {
+			if vform, ok := e1.AVM.GetString("vform"); ok && (vform == "fin" || vform == "past") {
+				if cas, ok := e2.AVM.GetString("case"); ok && cas == "dat" {
+					if _, ok := e1.AVM.GetAVM("iobj"); !ok {
+						avm := e1.AVM.Clone()
+						avm.Set("iobj", e2.AVM)
+						return "V", avm
+					}
+				}
+			}
+		}
+		// V -> NP V -- iobj
+		if e1.Category == "NP" && e2.Category == "V" {
+			e1, e2 := e2, e1
+			if vform, ok := e1.AVM.GetString("vform"); ok && (vform == "fin" || vform == "past") {
+				if cas, ok := e2.AVM.GetString("case"); ok && cas == "dat" {
+					if _, ok := e1.AVM.GetAVM("iobj"); !ok {
+						avm := e1.AVM.Clone()
+						avm.Set("iobj", e2.AVM)
+						return "V", avm
+					}
+				}
+			}
+		}
 		// V -> V NP -- subj
 		if e1.Category == "V" && e2.Category == "NP" {
 			if vform, ok := e1.AVM.GetString("vform"); ok && (vform == "fin" || vform == "past") {

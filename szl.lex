@@ -462,6 +462,7 @@
 # valence frames
 
 %vołać V subj,obj?
+%vołać V subj,iobj
 
 # feature structures
 

@@ -279,6 +279,7 @@ func getBestEdges(edges []*syntax.Edge) []*syntax.Edge {
 		}
 		r = append(r, e)
 	}
+	// fmt.Println("filtered edges:", len(edges), "->", len(r))
 	return r
 }
 
