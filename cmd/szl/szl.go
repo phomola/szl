@@ -255,18 +255,32 @@ func main() {
 			}
 		}
 		chart.Print(os.Stdout, false)
-		fmt.Printf("\n")
+		fmt.Println()
 		chart.Parse(apply)
 		chart.Print(os.Stdout, true)
-		fmt.Printf("\n")
-		for _, edge := range chart.GetEdges(1, endNode, true) {
-			forms := edge.Linearise(func(e *syntax.Edge) string {
-				if of, ok := e.Info["origForm"]; ok {
-					return of.(string)
+		fmt.Println()
+		var minLen int
+		for _, path := range chart.GetPaths(1, endNode, true) {
+			if minLen == 0 {
+				minLen = len(path)
+			} else {
+				if minLen < len(path) {
+					break
 				}
-				return e.Form
-			})
-			fmt.Println(strings.Join(forms, " "))
+			}
+			for i, edge := range path {
+				if i > 0 {
+					fmt.Print(" + ")
+				}
+				forms := edge.Linearise(func(e *syntax.Edge) string {
+					if of, ok := e.Info["origForm"]; ok {
+						return of.(string)
+					}
+					return e.Form
+				})
+				fmt.Print(strings.Join(forms, " "))
+			}
+			fmt.Println()
 		}
 	} else if chartInput != "" {
 		an, err := loadLex(flag.Args(), substReplacer)

@@ -65,6 +65,38 @@ func (ch *Chart) GetEdges(start, end int, onlyUnused bool) []*Edge {
 	return edges
 }
 
+// GetPaths returns the paths from start to end.
+func (ch *Chart) GetPaths(start, end int, onlyUnused bool) [][]*Edge {
+	paths := ch.findPaths(start, end, onlyUnused, make(map[int][][]*Edge))
+	sort.Slice(paths, func(i, j int) bool {
+		p1, p2 := paths[i], paths[j]
+		l1, l2 := len(p1), len(p2)
+		return l1 < l2
+	})
+	return paths
+}
+
+func (ch *Chart) findPaths(start, end int, onlyUnused bool, pathsFrom map[int][][]*Edge) [][]*Edge {
+	if paths, ok := pathsFrom[start]; ok {
+		return paths
+	}
+	var paths [][]*Edge
+	for _, e := range ch.edges[start] {
+		if !onlyUnused || !e.Used {
+			if e.End == end {
+				paths = append(paths, []*Edge{e})
+			} else {
+				tails := ch.findPaths(e.End, end, onlyUnused, pathsFrom)
+				for _, tail := range tails {
+					paths = append(paths, append([]*Edge{e}, tail...))
+				}
+			}
+		}
+	}
+	pathsFrom[start] = paths
+	return paths
+}
+
 // Parse parses the chart using the provided apply function.
 func (ch *Chart) Parse(apply func([]*Edge) (string, *AVM)) {
 	ch.parse(apply, 0)

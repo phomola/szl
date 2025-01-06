@@ -396,6 +396,8 @@
 -a2 an7p imi
 
 -v4 vinf ać
+-v4 vtr ajōncy
+
 -v4 vpr1s ōm
 -v4 vpr2s ŏsz
 -v4 vpr3s ŏ
@@ -403,51 +405,75 @@
 -v4 vpr2p ŏcie
 -v4 vpr1p ajōm
 
-# replacements ("two-level" morphology)
+-v4 vpsms oł
+-v4 vpsfs ała
+-v4 vpsns ało
+-v4 vpsmhp ali
+-v4 vpsp ały
 
-!> n'a nia
-!> n'ã niã
-!> n'e nie
-!> p'e pie
-!> d'e dzie
-!> s'e sie
-!> b'e bie
-!> c'e cie
-!> p'i pi
-!> n'i ni
-!> r'i rzi
-!> n'o nio
-!> k'ŏ kŏ
-!> k'õ kõ
-!> k'ō kō
-!> p'ŏ piŏ
-#!> n'ŏ niŏ
-!> p'õ piõ
-!> p'ō piō
-!> n'ō niō
-!> ńa nia
-!> ńu niu
-!> ńy niy
-!> ńi ni
-!> ńe nie
-!> ńŏ niŏ
-!> ńō niō
-!> ća cia
-!> ću ciu
-!> ćy ciy
-!> ći ci
-!> će cie
-!> ćō ciō
+-v4 vam1s any
+-v4 vam2s anego
+-v4 vam3s anymu
+-v4 vamh4s anego
+-v4 vamn4s any
+-v4 vam5s any
+-v4 vam6s anym
+-v4 vam7s anym
+-v4 vamh1p ani
+-v4 vamn1p ane
+-v4 vam2p anych
+-v4 vam3p anym
+-v4 vamh4p anych
+-v4 vamn4p ane
+-v4 vam5p ane
+-v4 vam6p anych
+-v4 vam7p anymi
+-v4 vaf1s anŏ
+-v4 vaf2s anej
+-v4 vaf3s anej
+-v4 vaf4s anõ
+-v4 vaf5s anŏ
+-v4 vaf6s anej
+-v4 vaf7s anōm
+-v4 vaf1p ane
+-v4 vaf2p anych
+-v4 vaf3p anym
+-v4 vaf4p ane
+-v4 vaf5p ane
+-v4 vaf6p anych
+-v4 vaf7p anymi
+-v4 van1s ane
+-v4 van2s anego
+-v4 van3s anymu
+-v4 van4s ane
+-v4 van5s ane
+-v4 van6s anym
+-v4 van7s anym
+-v4 van1p ane
+-v4 van2p anych
+-v4 van3p anym
+-v4 van4p ane
+-v4 van5p ane
+-v4 van6p anych
+-v4 van7p anymi
 
 # feature structures
 
 *vinf V [vform:"inf"] autosem
+*vtr V [vform:"trg"] autosem
+
 *vpr1s V [vform:"fin",person:"1",number:"sg",tense:"pres"] autosem
 *vpr2s V [vform:"fin",person:"2",number:"sg",tense:"pres"] autosem
 *vpr3s V [vform:"fin",person:"3",number:"sg",tense:"pres"] autosem
 *vpr1p V [vform:"fin",person:"1",number:"pl",tense:"pres"] autosem
 *vpr2p V [vform:"fin",person:"2",number:"pl",tense:"pres"] autosem
 *vpr3p V [vform:"fin",person:"3",number:"pl",tense:"pres"] autosem
+
+*vpsms V [vform:"past",gender:"m",number:"sg"] autosem
+*vpsfs V [vform:"past",gender:"f",number:"sg"] autosem
+*vpsns V [vform:"past",gender:"n",number:"sg"] autosem
+*vpsmhp V [vform:"past",gender:"m",anim:"hum",number:"pl"] autosem
+*vpsp V [vform:"past",anim:"nhum",number:"pl"] autosem
 
 *nmh1s N [gender:"m",anim:"hum",case:"nom",number:"sg"] autosem
 *nmh2s N [gender:"m",anim:"hum",case:"gen",number:"sg"] autosem
@@ -556,3 +582,87 @@
 *an5p A [gender:"n",case:"voc",number:"pl"] autosem
 *an6p A [gender:"n",case:"loc",number:"pl"] autosem
 *an7p A [gender:"n",case:"ins",number:"pl"] autosem
+
+*vam1s V [vform:"ppart",gender:"m",case:"nom",number:"sg"] autosem
+*vam2s V [vform:"ppart",gender:"m",case:"gen",number:"sg"] autosem
+*vam3s V [vform:"ppart",gender:"m",case:"dat",number:"sg"] autosem
+*vamh4s V [vform:"ppart",gender:"m",anim:"hum",case:"acc",number:"sg"] autosem
+*vamn4s V [vform:"ppart",gender:"m",anim:"nhum",case:"acc",number:"sg"] autosem
+*vam5s V [vform:"ppart",gender:"m",case:"voc",number:"sg"] autosem
+*vam6s V [vform:"ppart",gender:"m",case:"loc",number:"sg"] autosem
+*vam7s V [vform:"ppart",gender:"m",case:"ins",number:"sg"] autosem
+*vamh1p V [vform:"ppart",gender:"m",anim:"hum",case:"nom",number:"pl"] autosem
+*vamn1p V [vform:"ppart",gender:"m",anim:"nhum",case:"nom",number:"pl"] autosem
+*vam2p V [vform:"ppart",gender:"m",case:"gen",number:"pl"] autosem
+*vam3p V [vform:"ppart",gender:"m",case:"dat",number:"pl"] autosem
+*vamh4p V [vform:"ppart",gender:"m",anim:"hum",case:"acc",number:"pl"] autosem
+*vamn4p V [vform:"ppart",gender:"m",anim:"nhum",case:"acc",number:"pl"] autosem
+*vam5p V [vform:"ppart",gender:"m",case:"voc",number:"pl"] autosem
+*vam6p V [vform:"ppart",gender:"m",case:"loc",number:"pl"] autosem
+*vam7p V [vform:"ppart",gender:"m",case:"ins",number:"pl"] autosem
+
+*vaf1s V [vform:"ppart",gender:"f",case:"nom",number:"sg"] autosem
+*vaf2s V [vform:"ppart",gender:"f",case:"gen",number:"sg"] autosem
+*vaf3s V [vform:"ppart",gender:"f",case:"dat",number:"sg"] autosem
+*vaf4s V [vform:"ppart",gender:"f",case:"acc",number:"sg"] autosem
+*vaf5s V [vform:"ppart",gender:"f",case:"voc",number:"sg"] autosem
+*vaf6s V [vform:"ppart",gender:"f",case:"loc",number:"sg"] autosem
+*vaf7s V [vform:"ppart",gender:"f",case:"ins",number:"sg"] autosem
+*vaf1p V [vform:"ppart",gender:"f",case:"nom",number:"pl"] autosem
+*vaf2p V [vform:"ppart",gender:"f",case:"gen",number:"pl"] autosem
+*vaf3p V [vform:"ppart",gender:"f",case:"dat",number:"pl"] autosem
+*vaf4p V [vform:"ppart",gender:"f",case:"acc",number:"pl"] autosem
+*vaf5p V [vform:"ppart",gender:"f",case:"voc",number:"pl"] autosem
+*vaf6p V [vform:"ppart",gender:"f",case:"loc",number:"pl"] autosem
+*vaf7p V [vform:"ppart",gender:"f",case:"ins",number:"pl"] autosem
+
+*van1s V [vform:"ppart",gender:"n",case:"nom",number:"sg"] autosem
+*van2s V [vform:"ppart",gender:"n",case:"gen",number:"sg"] autosem
+*van3s V [vform:"ppart",gender:"n",case:"dat",number:"sg"] autosem
+*van4s V [vform:"ppart",gender:"n",case:"acc",number:"sg"] autosem
+*van5s V [vform:"ppart",gender:"n",case:"voc",number:"sg"] autosem
+*van6s V [vform:"ppart",gender:"n",case:"loc",number:"sg"] autosem
+*van7s V [vform:"ppart",gender:"n",case:"ins",number:"sg"] autosem
+*van1p V [vform:"ppart",gender:"n",case:"nom",number:"pl"] autosem
+*van2p V [vform:"ppart",gender:"n",case:"gen",number:"pl"] autosem
+*van3p V [vform:"ppart",gender:"n",case:"dat",number:"pl"] autosem
+*van4p V [vform:"ppart",gender:"n",case:"acc",number:"pl"] autosem
+*van5p V [vform:"ppart",gender:"n",case:"voc",number:"pl"] autosem
+*van6p V [vform:"ppart",gender:"n",case:"loc",number:"pl"] autosem
+*van7p V [vform:"ppart",gender:"n",case:"ins",number:"pl"] autosem
+
+# replacements ("two-level" morphology)
+
+!> n'a nia
+!> n'ã niã
+!> n'e nie
+!> p'e pie
+!> d'e dzie
+!> s'e sie
+!> b'e bie
+!> c'e cie
+!> p'i pi
+!> n'i ni
+!> r'i rzi
+!> n'o nio
+!> k'ŏ kŏ
+!> k'õ kõ
+!> k'ō kō
+!> p'ŏ piŏ
+#!> n'ŏ niŏ
+!> p'õ piõ
+!> p'ō piō
+!> n'ō niō
+!> ńa nia
+!> ńu niu
+!> ńy niy
+!> ńi ni
+!> ńe nie
+!> ńŏ niŏ
+!> ńō niō
+!> ća cia
+!> ću ciu
+!> ćy ciy
+!> ći ci
+!> će cie
+!> ćō ciō

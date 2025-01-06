@@ -12,6 +12,10 @@ func Apply(edges []*syntax.Edge) (string, *syntax.AVM) {
 			return "N'", e1.AVM
 		case "N'":
 			return "NP", e1.AVM
+		case "V":
+			if vform, ok := e1.AVM.GetString("vform"); ok && vform == "ppart" {
+				return "A", e1.AVM
+			}
 		}
 	case 2:
 		e1, e2 := edges[0], edges[1]
