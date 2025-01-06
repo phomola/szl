@@ -459,6 +459,10 @@
 -v4 van6p anych
 -v4 van7p anymi
 
+# valence frames
+
+%vołać V subj,obj?
+
 # feature structures
 
 *vinf V [vform:"inf"] autosem

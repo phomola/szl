@@ -16,6 +16,7 @@ type Edge struct {
 	Children []*Edge
 	Level    int
 	Used     bool
+	Weight   int
 }
 
 // Print prints the edge.
