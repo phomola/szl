@@ -13,6 +13,10 @@ func Apply(edges []*syntax.Edge) (string, *syntax.AVM) {
 		case "N'":
 			return "NP", e1.AVM
 		case "V":
+			return "V'", e1.AVM
+		case "V'":
+			return "VP", e1.AVM
+		case "VP":
 			if vform, ok := e1.AVM.GetString("vform"); ok && vform == "ppart" {
 				return "A", e1.AVM
 			}

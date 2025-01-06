@@ -6,8 +6,11 @@ import (
 	"flag"
 	"fmt"
 	"io"
+	"maps"
 	"os"
 	"plugin"
+	"slices"
+	"sort"
 	"strconv"
 	"strings"
 
@@ -260,7 +263,7 @@ func main() {
 		chart.Print(os.Stdout, true)
 		fmt.Println()
 		var minLen int
-		for _, path := range chart.GetPaths(1, endNode, true) {
+		for _, path := range chart.GetPathsOfClusters(1, endNode, true) {
 			if minLen == 0 {
 				minLen = len(path)
 			} else {
@@ -268,17 +271,27 @@ func main() {
 					break
 				}
 			}
-			for i, edge := range path {
+			for i, cl := range path {
 				if i > 0 {
 					fmt.Print(" + ")
 				}
-				forms := edge.Linearise(func(e *syntax.Edge) string {
-					if of, ok := e.Info["origForm"]; ok {
-						return of.(string)
-					}
-					return e.Form
-				})
-				fmt.Print(strings.Join(forms, " "))
+				clForms := make(map[string]struct{}, len(cl))
+				for _, edge := range cl {
+					forms := edge.Linearise(func(e *syntax.Edge) string {
+						if of, ok := e.Info["origForm"]; ok {
+							return of.(string)
+						}
+						return e.Form
+					})
+					clForms[strings.Join(forms, " ")] = struct{}{}
+				}
+				forms := slices.Collect(maps.Keys(clForms))
+				sort.Strings(forms)
+				if len(forms) == 1 {
+					fmt.Print(forms[0])
+				} else {
+					fmt.Print("{ ", strings.Join(forms, " | "), " }")
+				}
 			}
 			fmt.Println()
 		}
