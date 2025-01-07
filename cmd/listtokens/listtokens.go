@@ -5,15 +5,9 @@ import (
 	"fmt"
 	"io"
 	"os"
-	"sort"
 
-	"github.com/phomola/textkit"
+	"github.com/phomola/szl/utils"
 )
-
-type wordCount struct {
-	word  string
-	count int
-}
 
 func main() {
 	flag.Parse()
@@ -35,27 +29,13 @@ func main() {
 		os.Exit(1)
 	}
 
-	var tok textkit.Tokeniser
-	tokens := tok.Tokenise(string(text), "")
-	m := make(map[string]int)
-	for _, t := range tokens {
-		if t.Type == textkit.Word {
-			f := string(t.Form)
-			c := m[f]
-			m[f] = c + 1
-		}
+	counts, err := utils.CountWords(string(text))
+	if err != nil {
+		fmt.Fprintln(os.Stderr, err)
+		os.Exit(1)
 	}
-	counts := make([]wordCount, 0, len(m))
-	for w, c := range m {
-		counts = append(counts, wordCount{
-			word:  w,
-			count: c,
-		})
-	}
-	sort.Slice(counts, func(i, j int) bool {
-		return counts[i].count > counts[j].count
-	})
+
 	for _, wc := range counts {
-		fmt.Printf("%s/%d\n", wc.word, wc.count)
+		fmt.Printf("%s/%d\n", wc.Word, wc.Count)
 	}
 }

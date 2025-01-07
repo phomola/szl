@@ -476,7 +476,7 @@
 -v1a vpr2p 'ecie
 -v1a vpr1p ōm
 
--v1a vpsms 0 >e,ō >a,o
+-v1a vpsms 0 >e,ō >a,ŏ
 -v1a vpsfs ła >e,y
 -v1a vpsns ło >e,y
 -v1a vpsmhp 'li >e,y
