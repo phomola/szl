@@ -469,7 +469,7 @@
 -v1a vimp1p 'my >e,y
 -v1a vimp2p 'cie >e,y
 
--v1a vpr1s ym
+-v1a vpr1s ã
 -v1a vpr2s 'esz
 -v1a vpr3s 'e
 -v1a vpr1p ymy
@@ -629,7 +629,7 @@
 -v2b vimp1p nimy
 -v2b vimp2p nicie
 
--v2b vpr1s nym
+-v2b vpr1s nã
 -v2b vpr2s niesz
 -v2b vpr3s nie
 -v2b vpr1p nymy
@@ -709,7 +709,7 @@
 -v3a vimp1p 'ejmy
 -v3a vimp2p 'ejcie
 
--v3a vpr1s 'ym
+-v3a vpr1s 'ã
 -v3a vpr2s 'esz
 -v3a vpr3s 'y
 -v3a vpr1p 'ymy
@@ -789,7 +789,7 @@
 -v3b vimp1p 'my
 -v3b vimp2p 'cie
 
--v3b vpr1s "ym
+-v3b vpr1s "ã
 -v3b vpr2s 'isz
 -v3b vpr3s i
 -v3b vpr1p "ymy
@@ -869,7 +869,7 @@
 -v3c vimp1p my
 -v3c vimp2p cie
 
--v3c vpr1s ym
+-v3c vpr1s ã
 -v3c vpr2s ysz
 -v3c vpr3s y
 -v3c vpr1p ymy
@@ -949,7 +949,7 @@
 -v4a vimp1p 'my
 -v4a vimp2p 'cie
 
--v4a vpr1s "ym
+-v4a vpr1s "ã
 -v4a vpr2s isz
 -v4a vpr3s "y
 -v4a vpr1p "ymy
@@ -1029,7 +1029,7 @@
 -v4b vimp1p "my
 -v4b vimp2p "cie
 
--v4b vpr1s "ym
+-v4b vpr1s "ã
 -v4b vpr2s "ysz
 -v4b vpr3s "y
 -v4b vpr1p "ymy
@@ -1189,7 +1189,7 @@
 -v5b vimp1p "my
 -v5b vimp2p "cie
 
--v5b vpr1s "ym
+-v5b vpr1s "ã
 -v5b vpr2s "esz
 -v5b vpr3s "e
 -v5b vpr1p "ymy
@@ -1269,7 +1269,7 @@
 -v6 vimp1p ujmy
 -v6 vimp2p ujcie
 
--v6 vpr1s ujym
+-v6 vpr1s ujã
 -v6 vpr2s ujesz
 -v6 vpr3s uje
 -v6 vpr1p ujymy
@@ -1529,6 +1529,7 @@
 
 # replacements ("two-level" morphology)
 
+!> m'ã miã
 !> t'l tl
 !> d'l dl
 !> t'ć ść
@@ -1582,18 +1583,22 @@
 !> w"ō wiō
 !> w"yn wiyn
 !> w"ym wiym
+!> w"ã wiã
 !> w"y wi
 !> z"y ży
+!> z"ã żã
 !> l"ō lō
 !> p"ō piō
 !> l"yn lyn
 !> l"ym lym
+!> l"ã lã
 !> l"y li
 !> p"y piy
 !> r"ō rzō
 !> z"ō żō
 !> r"yn rzyn
 !> r"ym rzym
+!> r"ã rzã
 !> r"y rzi
 !> ńa nia
 !> ńu niu
