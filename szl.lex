@@ -2,6 +2,10 @@
 ### Silesian morphology - for experiments ###
 #############################################
 
+###
+### The paradigms are based on Kellner's monograph.
+###
+
 ### paradigms
 
 ## substantives
@@ -25,7 +29,7 @@
 # n4 cielã
 
 # v1a niyść
-# v1b ciōnć
+# v1b najōnć
 # v1c trzić
 # v1d bić
 # v2a stanyć
@@ -87,11 +91,11 @@
 @plyść v1a pl{e}t
 @kraść v1a kr{a}d
 
-#@ciōnć v1b ciōnć
+@najōnć v1b naj
 
-#@trzić v1c trzić
+#@trzić v1c trz
 
-#@bić v1d bić
+#@bić v1d b
 
 @głupi a2 głup
 @wysoki a2 wysok
@@ -527,6 +531,86 @@
 -v1a van5p 'ōne
 -v1a van6p 'ōnych
 -v1a van7p 'ōnymi
+
+-v1b vinf ōnć
+-v1b vtr nōncy
+-v1b vn1s ynci
+-v1b vn2s ynciŏ
+-v1b vn3s ynciu
+-v1b vn4s ynci
+-v1b vn5s ynci
+-v1b vn6s ynciu
+-v1b vn7s yncim
+-v1b vn1p yncia
+-v1b vn2p ynci
+-v1b vn3p ynciōm
+-v1b vn4p yncia
+-v1b vn5p yncia
+-v1b vn6p ynciach
+-v1b vn7p ynciami
+
+-v1b vimp2s ni
+-v1b vimp1p nimy
+-v1b vimp2p nicie
+
+-v1b vpr1s nã
+-v1b vpr2s niesz
+-v1b vpr3s nie
+-v1b vpr1p nymy
+-v1b vpr2p niecie
+-v1b vpr1p nōm
+
+-v1b vpsms ōn
+-v1b vpsfs yna
+-v1b vpsns yno
+-v1b vpsmhp yni
+-v1b vpsp yny
+
+-v1b vam1s ynty
+-v1b vam2s yntego
+-v1b vam3s yntymu
+-v1b vamh4s yntego
+-v1b vamn4s ynty
+-v1b vam5s ynty
+-v1b vam6s yntym
+-v1b vam7s yntym
+-v1b vamh1p ynci
+-v1b vamn1p ynte
+-v1b vam2p yntych
+-v1b vam3p yntym
+-v1b vamh4p yntych
+-v1b vamn4p ynte
+-v1b vam5p ynte
+-v1b vam6p yntych
+-v1b vam7p yntymi
+-v1b vaf1s yntŏ
+-v1b vaf2s yntej
+-v1b vaf3s yntej
+-v1b vaf4s yntõ
+-v1b vaf5s yntŏ
+-v1b vaf6s yntej
+-v1b vaf7s yntōm
+-v1b vaf1p ynte
+-v1b vaf2p yntych
+-v1b vaf3p yntym
+-v1b vaf4p ynte
+-v1b vaf5p ynte
+-v1b vaf6p yntych
+-v1b vaf7p yntymi
+-v1b van1s ynte
+-v1b van2s yntego
+-v1b van3s yntymu
+-v1b van4s ynte
+-v1b van5s ynte
+-v1b van6s yntym
+-v1b van7s yntym
+-v1b van1p ynte
+-v1b van2p yntych
+-v1b van3p yntym
+-v1b van4p ynte
+-v1b van5p ynte
+-v1b van6p yntych
+-v1b van7p yntymi
 
 -v2a vinf nyć
 -v2a vtr nōncy
