@@ -7,13 +7,13 @@ import (
 	"github.com/phomola/textkit"
 )
 
-// WordCount ...
+// WordCount is a word form provided with its count.
 type WordCount struct {
 	Word  string
 	Count int
 }
 
-// CountWords ...
+// CountWords calculates the counts of words in a text.
 func CountWords(text string) ([]WordCount, error) {
 	var tok textkit.Tokeniser
 	tokens := tok.Tokenise(text, "")
