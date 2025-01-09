@@ -6,8 +6,11 @@ import (
 	"flag"
 	"fmt"
 	"io"
+	"maps"
 	"os"
 	"plugin"
+	"slices"
+	"sort"
 	"strconv"
 	"strings"
 
@@ -88,6 +91,60 @@ func (e *Entry) AVM() (*syntax.AVM, error) {
 	return e.avm, nil
 }
 
+// ValenceSlot ...
+type ValenceSlot struct {
+	Name     string
+	Optional bool
+}
+
+// ValenceFrame ...
+type ValenceFrame struct {
+	Lemma    string
+	Category string
+	Slots    []*ValenceSlot
+}
+
+// MustHave ...
+func (f *ValenceFrame) MustHave(fn string) bool {
+	for _, s := range f.Slots {
+		if s.Name == fn && !s.Optional {
+			return true
+		}
+	}
+	return false
+}
+
+// MayHave ...
+func (f *ValenceFrame) MayHave(fn string) bool {
+	for _, s := range f.Slots {
+		if s.Name == fn {
+			return true
+		}
+	}
+	return false
+}
+
+// NewValenceFrame ...
+func NewValenceFrame(lemma, category, def string) (*ValenceFrame, error) {
+	var slots []*ValenceSlot
+	for _, def := range strings.Split(def, ",") {
+		var opt bool
+		if def[len(def)-1] == '?' {
+			opt = true
+			def = def[:len(def)-1]
+		}
+		slots = append(slots, &ValenceSlot{
+			Name:     def,
+			Optional: opt,
+		})
+	}
+	return &ValenceFrame{
+		Lemma:    lemma,
+		Category: category,
+		Slots:    slots,
+	}, nil
+}
+
 // Analyser ...
 type Analyser struct {
 	Stems             map[string][]Stem
@@ -95,6 +152,7 @@ type Analyser struct {
 	Replacer          *strings.Replacer
 	FeatureStructures map[string][]string
 	Entries           map[string][]*Entry
+	ValenceFrames     map[string][]*ValenceFrame
 }
 
 // Analyse ...
@@ -103,6 +161,17 @@ func (an *Analyser) Analyse(form string) ([]*Entry, error) {
 		return entries, nil
 	}
 	return nil, nil
+}
+
+// GetValenceFrames ...
+func (an *Analyser) GetValenceFrames(lemma, cat string) []*ValenceFrame {
+	var frames []*ValenceFrame
+	for _, f := range an.ValenceFrames[lemma] {
+		if f.Category == cat {
+			frames = append(frames, f)
+		}
+	}
+	return frames
 }
 
 func (an *Analyser) buildEntries(substReplacer *strings.Replacer) error {
@@ -130,6 +199,8 @@ func (an *Analyser) buildEntries(substReplacer *strings.Replacer) error {
 					entry.Category = fs[0]
 					entry.FeatureStructure = fs[1]
 					entry.Autosemantic = fs[2] == "autosem"
+				} else {
+					return fmt.Errorf("missing feature structure for '%s'", end.Tag)
 				}
 				entries := an.Entries[form]
 				an.Entries[form] = append(entries, entry)
@@ -137,6 +208,79 @@ func (an *Analyser) buildEntries(substReplacer *strings.Replacer) error {
 		}
 	}
 	return nil
+}
+
+func calculateWeight(edge *syntax.Edge, an *Analyser) {
+	avm := edge.AVM
+	edge.Weight = checkValence(avm, an)
+	// fmt.Fprintln(os.Stderr, "calculated weight of:", edge.Form, "/", edge.Category, "-", edge.Weight)
+}
+
+var valFuncs = []string{"subj", "obj", "iobj", "comp"}
+
+func checkValence(avm *syntax.AVM, an *Analyser) int {
+	var weight int
+	if lemma, ok := avm.GetString("lemma"); ok {
+		if cat, ok := avm.GetString("cat"); ok {
+			frames := an.GetValenceFrames(lemma, cat)
+			if len(frames) == 0 {
+				if cat == "V" {
+					fmt.Fprintf(os.Stderr, "missing valence frame for '%s/%s'\n", lemma, cat)
+				}
+				goto recurse
+			}
+			minW := 1_000_000
+			for _, f := range frames {
+				var w int
+				for _, s := range f.Slots {
+					if !s.Optional {
+						if _, ok := avm.GetAVM(s.Name); !ok {
+							w++
+						}
+					}
+				}
+				for n, v := range avm.Features {
+					if _, ok := v.(*syntax.AVM); ok {
+						if slices.Contains(valFuncs, n) {
+							if !f.MayHave(n) {
+								w++
+							}
+						}
+					}
+				}
+				if w < minW {
+					minW = w
+				}
+			}
+			weight += minW
+		}
+	}
+recurse:
+	for n, v := range avm.Features {
+		if avm, ok := v.(*syntax.AVM); ok {
+			if slices.Contains(valFuncs, n) {
+				weight += checkValence(avm, an)
+			}
+		}
+	}
+	return weight
+}
+
+func getBestEdges(edges []*syntax.Edge) []*syntax.Edge {
+	sort.Slice(edges, func(i, j int) bool {
+		e1, e2 := edges[i], edges[j]
+		return e1.Weight < e2.Weight
+	})
+	weight := edges[0].Weight
+	r := make([]*syntax.Edge, 0, len(edges))
+	for _, e := range edges {
+		if e.Weight > weight {
+			break
+		}
+		r = append(r, e)
+	}
+	// fmt.Println("filtered edges:", len(edges), "->", len(r))
+	return r
 }
 
 func main() {
@@ -228,6 +372,7 @@ func main() {
 					}
 					if entry.Autosemantic {
 						avm.Set("lemma", syntax.String(entry.Lemma))
+						avm.Set("cat", syntax.String(entry.Category))
 						avm.Set("index", syntax.String(strconv.Itoa(start)))
 					}
 					chart.AddEdge(&syntax.Edge{
@@ -253,18 +398,60 @@ func main() {
 			}
 		}
 		chart.Print(os.Stdout, false)
-		fmt.Printf("\n")
+		fmt.Println()
 		chart.Parse(apply)
 		chart.Print(os.Stdout, true)
-		fmt.Printf("\n")
-		for _, edge := range chart.GetEdges(1, endNode, true) {
-			forms := edge.Linearise(func(e *syntax.Edge) string {
-				if of, ok := e.Info["origForm"]; ok {
-					return of.(string)
+		fmt.Println()
+		var minLen int
+		paths := chart.GetPathsOfClusters(1, endNode, true)
+		for _, path := range paths {
+			if minLen == 0 {
+				minLen = len(path)
+			} else {
+				if minLen < len(path) {
+					break
 				}
-				return e.Form
-			})
-			fmt.Println(strings.Join(forms, " "))
+			}
+			for i, cl := range path {
+				if i > 0 {
+					fmt.Print(" + ")
+				}
+				for _, edge := range cl {
+					calculateWeight(edge, an)
+				}
+			}
+		}
+		for _, path := range paths {
+			if minLen == 0 {
+				minLen = len(path)
+			} else {
+				if minLen < len(path) {
+					break
+				}
+			}
+			for i, cl := range path {
+				if i > 0 {
+					fmt.Print(" + ")
+				}
+				clForms := make(map[string]struct{}, len(cl))
+				for _, edge := range getBestEdges(cl) {
+					forms := edge.Linearise(func(e *syntax.Edge) string {
+						if of, ok := e.Info["origForm"]; ok {
+							return of.(string)
+						}
+						return e.Form
+					})
+					clForms[strings.Join(forms, " ")] = struct{}{}
+				}
+				forms := slices.Collect(maps.Keys(clForms))
+				sort.Strings(forms)
+				if len(forms) == 1 {
+					fmt.Print(forms[0])
+				} else {
+					fmt.Print("{ ", strings.Join(forms, " | "), " }")
+				}
+			}
+			fmt.Println()
 		}
 	} else if chartInput != "" {
 		an, err := loadLex(flag.Args(), substReplacer)
@@ -330,6 +517,7 @@ func loadLex(files []string, substReplacer *strings.Replacer) (*Analyser, error)
 		endings           = make(map[string][]Ending)
 		replacements      []Replacement
 		featureStructures = make(map[string][]string)
+		valenceFrames     = make(map[string][]*ValenceFrame)
 	)
 	for _, fn := range files {
 		f, err := os.Open(fn)
@@ -378,6 +566,9 @@ func loadLex(files []string, substReplacer *strings.Replacer) (*Analyser, error)
 								if repl == nil {
 									repl = make(map[string]string)
 								}
+								if new == "0" {
+									new = ""
+								}
 								repl[old] = new
 							} else {
 								return nil, fmt.Errorf("bad definition at line %d", l)
@@ -411,6 +602,17 @@ func loadLex(files []string, substReplacer *strings.Replacer) (*Analyser, error)
 					return nil, fmt.Errorf("feature structure for '%s' already defined", comps[0])
 				}
 				featureStructures[comps[0]] = comps[1:]
+			case '%':
+				comps := strings.Split(line[1:], " ")
+				if len(comps) != 3 {
+					return nil, fmt.Errorf("bad definition at line %d", l)
+				}
+				frame, err := NewValenceFrame(comps[0], comps[1], comps[2])
+				if err != nil {
+					return nil, err
+				}
+				frames := valenceFrames[comps[0]]
+				valenceFrames[comps[0]] = append(frames, frame)
 			default:
 				return nil, fmt.Errorf("bad directive at line %d", l)
 			}
@@ -426,6 +628,7 @@ func loadLex(files []string, substReplacer *strings.Replacer) (*Analyser, error)
 		Endings:           endings,
 		Replacer:          replacer,
 		FeatureStructures: featureStructures,
+		ValenceFrames:     valenceFrames,
 	}
 	if err := an.buildEntries(substReplacer); err != nil {
 		return nil, err
