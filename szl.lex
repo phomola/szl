@@ -2,6 +2,10 @@
 ### Silesian morphology - for experiments ###
 #############################################
 
+###
+### The paradigms are based on Kellner's monograph.
+###
+
 ### paradigms
 
 ## substantives
@@ -23,6 +27,21 @@
 # n2 pole
 # n3 kozani
 # n4 cielã
+
+# v1a niyść
+# v1b najōnć
+# v1c trzić
+# v1d bić
+# v2a stanyć
+# v2b zamknyć
+# v3a umieć
+# v3b ciyrpieć
+# v3c leżeć
+# v4a nosić
+# v4b bŏczyć
+# v5a vołać
+# v5b pisać
+# v6 kupować
 
 ## adjectives
 
@@ -64,9 +83,51 @@
 @cielã nn4 ciel
 
 @dobry a1 dobr
+@mokry a1 mokr
+@szkaredy a1 szkared
+
+@niyść v1a ni{e}s
+@lyść v1a l{e}z
+@plyść v1a pl{e}t
+@kraść v1a kr{a}d
+
+@najōnć v1b naj
+
+@trzić v1c trz
+
+@bić v1d b
 
 @głupi a2 głup
 @wysoki a2 wysok
+
+@stanyć v2a st{a}
+
+@zamknyć v2b zamk
+
+@umieć v3a um
+
+@ciyrpieć v3b ciyrp
+@musieć v3b mus
+@lecieć v3b lec
+@siedzieć v3b siedz
+
+@leżeć v3c leż
+@beczeć v3c becz
+
+@nosić v4a nos
+@bawić v4a baw
+@pŏlić v4a pŏl
+@zestarzić v4a zestar
+@wrazić v4a wraz
+@sōndzić v4a sōndz
+
+@bŏczyć v4b bŏc
+
+@vołać v5a voł
+
+@pisać v5b pis
+
+@kupować v6 kup
 
 # paradigms
 
@@ -273,7 +334,7 @@
 -nn3 nn6s u
 -nn3 nn7s im
 -nn3 nn1p a
--nn3 nn2p 0
+-nn3 nn2p i
 -nn3 nn3p ōm
 -nn3 nn4p a
 -nn3 nn5p a
@@ -391,43 +452,1153 @@
 -a2 an6p ich
 -a2 an7p imi
 
-# replacements ("two-level" morphology)
+-v1a vinf 'ć >e,y
+-v1a vtr 'ōncy
+-v1a vn1s 'yni
+-v1a vn2s 'yniŏ
+-v1a vn3s 'yniu
+-v1a vn4s 'yni
+-v1a vn5s 'yni
+-v1a vn6s 'yniu
+-v1a vn7s 'ynim
+-v1a vn1p 'ynia
+-v1a vn2p 'yni
+-v1a vn3p 'yniōm
+-v1a vn4p 'ynia
+-v1a vn5p 'ynia
+-v1a vn6p 'yniach
+-v1a vn7p 'yniami
 
-!> n'a nia
-!> n'ã niã
-!> n'e nie
-!> p'e pie
-!> d'e dzie
-!> s'e sie
-!> b'e bie
-!> c'e cie
-!> p'i pi
-!> n'i ni
-!> r'i rzi
-!> n'o nio
-!> k'ŏ kŏ
-!> k'õ kõ
-!> k'ō kō
-!> p'ŏ piŏ
-#!> n'ŏ niŏ
-!> p'õ piõ
-!> p'ō piō
-!> n'ō niō
-!> ńa nia
-!> ńu niu
-!> ńy niy
-!> ńi ni
-!> ńe nie
-!> ńŏ niŏ
-!> ńō niō
-!> ća cia
-!> ću ciu
-!> ćy ciy
-!> ći ci
-!> će cie
-!> ćō ciō
+-v1a vimp2s ' >e,y
+-v1a vimp1p 'my >e,y
+-v1a vimp2p 'cie >e,y
+
+-v1a vpr1s ã
+-v1a vpr2s 'esz
+-v1a vpr3s 'e
+-v1a vpr1p ymy
+-v1a vpr2p 'ecie
+-v1a vpr1p ōm
+
+-v1a vpsms 0 >e,ō >a,ŏ
+-v1a vpsfs ła >e,y
+-v1a vpsns ło >e,y
+-v1a vpsmhp 'li >e,y
+-v1a vpsp ły >e,y
+
+-v1a vam1s 'ōny
+-v1a vam2s 'ōnego
+-v1a vam3s 'ōnymu
+-v1a vamh4s 'ōnego
+-v1a vamn4s 'ōny
+-v1a vam5s 'ōny
+-v1a vam6s 'ōnym
+-v1a vam7s 'ōnym
+-v1a vamh1p 'ōni
+-v1a vamn1p 'ōne
+-v1a vam2p 'ōnych
+-v1a vam3p 'ōnym
+-v1a vamh4p 'ōnych
+-v1a vamn4p 'ōne
+-v1a vam5p 'ōne
+-v1a vam6p 'ōnych
+-v1a vam7p 'ōnymi
+-v1a vaf1s 'ōnŏ
+-v1a vaf2s 'ōnej
+-v1a vaf3s 'ōnej
+-v1a vaf4s 'ōnõ
+-v1a vaf5s 'ōnŏ
+-v1a vaf6s 'ōnej
+-v1a vaf7s 'ōnōm
+-v1a vaf1p 'ōne
+-v1a vaf2p 'ōnych
+-v1a vaf3p 'ōnym
+-v1a vaf4p 'ōne
+-v1a vaf5p 'ōne
+-v1a vaf6p 'ōnych
+-v1a vaf7p 'ōnymi
+-v1a van1s 'ōne
+-v1a van2s 'ōnego
+-v1a van3s 'ōnymu
+-v1a van4s 'ōne
+-v1a van5s 'ōne
+-v1a van6s 'ōnym
+-v1a van7s 'ōnym
+-v1a van1p 'ōne
+-v1a van2p 'ōnych
+-v1a van3p 'ōnym
+-v1a van4p 'ōne
+-v1a van5p 'ōne
+-v1a van6p 'ōnych
+-v1a van7p 'ōnymi
+
+-v1b vinf ōnć
+-v1b vtr nōncy
+-v1b vn1s ynci
+-v1b vn2s ynciŏ
+-v1b vn3s ynciu
+-v1b vn4s ynci
+-v1b vn5s ynci
+-v1b vn6s ynciu
+-v1b vn7s yncim
+-v1b vn1p yncia
+-v1b vn2p ynci
+-v1b vn3p ynciōm
+-v1b vn4p yncia
+-v1b vn5p yncia
+-v1b vn6p ynciach
+-v1b vn7p ynciami
+
+-v1b vimp2s ni
+-v1b vimp1p nimy
+-v1b vimp2p nicie
+
+-v1b vpr1s nã
+-v1b vpr2s niesz
+-v1b vpr3s nie
+-v1b vpr1p nymy
+-v1b vpr2p niecie
+-v1b vpr1p nōm
+
+-v1b vpsms ōn
+-v1b vpsfs yna
+-v1b vpsns yno
+-v1b vpsmhp yni
+-v1b vpsp yny
+
+-v1b vam1s ynty
+-v1b vam2s yntego
+-v1b vam3s yntymu
+-v1b vamh4s yntego
+-v1b vamn4s ynty
+-v1b vam5s ynty
+-v1b vam6s yntym
+-v1b vam7s yntym
+-v1b vamh1p ynci
+-v1b vamn1p ynte
+-v1b vam2p yntych
+-v1b vam3p yntym
+-v1b vamh4p yntych
+-v1b vamn4p ynte
+-v1b vam5p ynte
+-v1b vam6p yntych
+-v1b vam7p yntymi
+-v1b vaf1s yntŏ
+-v1b vaf2s yntej
+-v1b vaf3s yntej
+-v1b vaf4s yntõ
+-v1b vaf5s yntŏ
+-v1b vaf6s yntej
+-v1b vaf7s yntōm
+-v1b vaf1p ynte
+-v1b vaf2p yntych
+-v1b vaf3p yntym
+-v1b vaf4p ynte
+-v1b vaf5p ynte
+-v1b vaf6p yntych
+-v1b vaf7p yntymi
+-v1b van1s ynte
+-v1b van2s yntego
+-v1b van3s yntymu
+-v1b van4s ynte
+-v1b van5s ynte
+-v1b van6s yntym
+-v1b van7s yntym
+-v1b van1p ynte
+-v1b van2p yntych
+-v1b van3p yntym
+-v1b van4p ynte
+-v1b van5p ynte
+-v1b van6p yntych
+-v1b van7p yntymi
+
+-v1c vinf ić
+-v1c vtr ōncy
+-v1c vn1s ici
+-v1c vn2s iciŏ
+-v1c vn3s iciu
+-v1c vn4s ici
+-v1c vn5s ici
+-v1c vn6s iciu
+-v1c vn7s icim
+-v1c vn1p icia
+-v1c vn2p ici
+-v1c vn3p iciōm
+-v1c vn4p icia
+-v1c vn5p icia
+-v1c vn6p iciach
+-v1c vn7p iciami
+
+-v1c vimp2s i
+-v1c vimp1p imy
+-v1c vimp2p icie
+
+-v1c vpr1s ã
+-v1c vpr2s esz
+-v1c vpr3s e
+-v1c vpr1p ymy
+-v1c vpr2p ecie
+-v1c vpr1p ōm
+
+-v1c vpsms ił
+-v1c vpsfs iła
+-v1c vpsns iło
+-v1c vpsmhp ili
+-v1c vpsp iły
+
+-v1c vam1s ity
+-v1c vam2s itego
+-v1c vam3s itymu
+-v1c vamh4s itego
+-v1c vamn4s ity
+-v1c vam5s ity
+-v1c vam6s itym
+-v1c vam7s itym
+-v1c vamh1p ici
+-v1c vamn1p ite
+-v1c vam2p itych
+-v1c vam3p itym
+-v1c vamh4p itych
+-v1c vamn4p ite
+-v1c vam5p ite
+-v1c vam6p itych
+-v1c vam7p itymi
+-v1c vaf1s itŏ
+-v1c vaf2s itej
+-v1c vaf3s itej
+-v1c vaf4s itõ
+-v1c vaf5s itŏ
+-v1c vaf6s itej
+-v1c vaf7s itōm
+-v1c vaf1p ite
+-v1c vaf2p itych
+-v1c vaf3p itym
+-v1c vaf4p ite
+-v1c vaf5p ite
+-v1c vaf6p itych
+-v1c vaf7p itymi
+-v1c van1s ite
+-v1c van2s itego
+-v1c van3s itymu
+-v1c van4s ite
+-v1c van5s ite
+-v1c van6s itym
+-v1c van7s itym
+-v1c van1p ite
+-v1c van2p itych
+-v1c van3p itym
+-v1c van4p ite
+-v1c van5p ite
+-v1c van6p itych
+-v1c van7p itymi
+
+-v1d vinf ić
+-v1d vtr ijōncy
+-v1d vn1s ici
+-v1d vn2s iciŏ
+-v1d vn3s iciu
+-v1d vn4s ici
+-v1d vn5s ici
+-v1d vn6s iciu
+-v1d vn7s icim
+-v1d vn1p icia
+-v1d vn2p ici
+-v1d vn3p iciōm
+-v1d vn4p icia
+-v1d vn5p icia
+-v1d vn6p iciach
+-v1d vn7p iciami
+
+-v1d vimp2s ij
+-v1d vimp1p ijmy
+-v1d vimp2p ijcie
+
+-v1d vpr1s ijã
+-v1d vpr2s ijesz
+-v1d vpr3s ije
+-v1d vpr1p ijymy
+-v1d vpr2p ijecie
+-v1d vpr1p ijōm
+
+-v1d vpsms ił
+-v1d vpsfs iła
+-v1d vpsns iło
+-v1d vpsmhp ili
+-v1d vpsp iły
+
+-v1d vam1s ity
+-v1d vam2s itego
+-v1d vam3s itymu
+-v1d vamh4s itego
+-v1d vamn4s ity
+-v1d vam5s ity
+-v1d vam6s itym
+-v1d vam7s itym
+-v1d vamh1p ici
+-v1d vamn1p ite
+-v1d vam2p itych
+-v1d vam3p itym
+-v1d vamh4p itych
+-v1d vamn4p ite
+-v1d vam5p ite
+-v1d vam6p itych
+-v1d vam7p itymi
+-v1d vaf1s itŏ
+-v1d vaf2s itej
+-v1d vaf3s itej
+-v1d vaf4s itõ
+-v1d vaf5s itŏ
+-v1d vaf6s itej
+-v1d vaf7s itōm
+-v1d vaf1p ite
+-v1d vaf2p itych
+-v1d vaf3p itym
+-v1d vaf4p ite
+-v1d vaf5p ite
+-v1d vaf6p itych
+-v1d vaf7p itymi
+-v1d van1s ite
+-v1d van2s itego
+-v1d van3s itymu
+-v1d van4s ite
+-v1d van5s ite
+-v1d van6s itym
+-v1d van7s itym
+-v1d van1p ite
+-v1d van2p itych
+-v1d van3p itym
+-v1d van4p ite
+-v1d van5p ite
+-v1d van6p itych
+-v1d van7p itymi
+
+-v2a vinf nyć
+-v2a vtr nōncy
+-v2a vn1s niyni
+-v2a vn2s niyniŏ
+-v2a vn3s niyniu
+-v2a vn4s niyni
+-v2a vn5s niyni
+-v2a vn6s niyniu
+-v2a vn7s niynim
+-v2a vn1p niynia
+-v2a vn2p niyni
+-v2a vn3p niyniōm
+-v2a vn4p niynia
+-v2a vn5p niynia
+-v2a vn6p niyniach
+-v2a vn7p niyniami
+
+-v2a vimp2s ń >a,ō
+-v2a vimp1p ńmy >a,ō
+-v2a vimp2p ńcie >a,ō
+
+-v2a vpr1s nym
+-v2a vpr2s niesz
+-v2a vpr3s nie
+-v2a vpr1p nymy
+-v2a vpr2p niecie
+-v2a vpr1p nōm
+
+-v2a vpsms nył
+-v2a vpsfs nyła
+-v2a vpsns nyło
+-v2a vpsmhp nyli
+-v2a vpsp nyły
+
+-v2a vam1s niōny
+-v2a vam2s niōnego
+-v2a vam3s niōnymu
+-v2a vamh4s niōnego
+-v2a vamn4s niōny
+-v2a vam5s niōny
+-v2a vam6s niōnym
+-v2a vam7s niōnym
+-v2a vamh1p niōni
+-v2a vamn1p niōne
+-v2a vam2p niōnych
+-v2a vam3p niōnym
+-v2a vamh4p niōnych
+-v2a vamn4p niōne
+-v2a vam5p niōne
+-v2a vam6p niōnych
+-v2a vam7p niōnymi
+-v2a vaf1s niōnŏ
+-v2a vaf2s niōnej
+-v2a vaf3s niōnej
+-v2a vaf4s niōnõ
+-v2a vaf5s niōnŏ
+-v2a vaf6s niōnej
+-v2a vaf7s niōnōm
+-v2a vaf1p niōne
+-v2a vaf2p niōnych
+-v2a vaf3p niōnym
+-v2a vaf4p niōne
+-v2a vaf5p niōne
+-v2a vaf6p niōnych
+-v2a vaf7p niōnymi
+-v2a van1s niōne
+-v2a van2s niōnego
+-v2a van3s niōnymu
+-v2a van4s niōne
+-v2a van5s niōne
+-v2a van6s niōnym
+-v2a van7s niōnym
+-v2a van1p niōne
+-v2a van2p niōnych
+-v2a van3p niōnym
+-v2a van4p niōne
+-v2a van5p niōne
+-v2a van6p niōnych
+-v2a van7p niōnymi
+
+-v2b vinf nyć
+-v2b vtr nōncy
+-v2b vn1s niyni
+-v2b vn2s niyniŏ
+-v2b vn3s niyniu
+-v2b vn4s niyni
+-v2b vn5s niyni
+-v2b vn6s niyniu
+-v2b vn7s niynim
+-v2b vn1p niynia
+-v2b vn2p niyni
+-v2b vn3p niyniōm
+-v2b vn4p niynia
+-v2b vn5p niynia
+-v2b vn6p niyniach
+-v2b vn7p niyniami
+
+-v2b vimp2s ni
+-v2b vimp1p nimy
+-v2b vimp2p nicie
+
+-v2b vpr1s nã
+-v2b vpr2s niesz
+-v2b vpr3s nie
+-v2b vpr1p nymy
+-v2b vpr2p niecie
+-v2b vpr1p nōm
+
+-v2b vpsms nył
+-v2b vpsfs ła
+-v2b vpsns ło
+-v2b vpsmhp li
+-v2b vpsp ły
+
+-v2b vam1s niōny
+-v2b vam2s niōnego
+-v2b vam3s niōnymu
+-v2b vamh4s niōnego
+-v2b vamn4s niōny
+-v2b vam5s niōny
+-v2b vam6s niōnym
+-v2b vam7s niōnym
+-v2b vamh1p niōni
+-v2b vamn1p niōne
+-v2b vam2p niōnych
+-v2b vam3p niōnym
+-v2b vamh4p niōnych
+-v2b vamn4p niōne
+-v2b vam5p niōne
+-v2b vam6p niōnych
+-v2b vam7p niōnymi
+-v2b vaf1s niōnŏ
+-v2b vaf2s niōnej
+-v2b vaf3s niōnej
+-v2b vaf4s niōnõ
+-v2b vaf5s niōnŏ
+-v2b vaf6s niōnej
+-v2b vaf7s niōnōm
+-v2b vaf1p niōne
+-v2b vaf2p niōnych
+-v2b vaf3p niōnym
+-v2b vaf4p niōne
+-v2b vaf5p niōne
+-v2b vaf6p niōnych
+-v2b vaf7p niōnymi
+-v2b van1s niōne
+-v2b van2s niōnego
+-v2b van3s niōnymu
+-v2b van4s niōne
+-v2b van5s niōne
+-v2b van6s niōnym
+-v2b van7s niōnym
+-v2b van1p niōne
+-v2b van2p niōnych
+-v2b van3p niōnym
+-v2b van4p niōne
+-v2b van5p niōne
+-v2b van6p niōnych
+-v2b van7p niōnymi
+
+-v3a vinf 'eć
+-v3a vtr 'ōncy
+-v3a vn1s 'yni
+-v3a vn2s 'yniŏ
+-v3a vn3s 'yniu
+-v3a vn4s 'yni
+-v3a vn5s 'yni
+-v3a vn6s 'yniu
+-v3a vn7s 'ynim
+-v3a vn1p 'ynia
+-v3a vn2p 'yni
+-v3a vn3p 'yniōm
+-v3a vn4p 'ynia
+-v3a vn5p 'ynia
+-v3a vn6p 'yniach
+-v3a vn7p 'yniami
+
+-v3a vimp2s 'ej
+-v3a vimp1p 'ejmy
+-v3a vimp2p 'ejcie
+
+-v3a vpr1s 'ã
+-v3a vpr2s 'esz
+-v3a vpr3s 'y
+-v3a vpr1p 'ymy
+-v3a vpr2p 'ecie
+-v3a vpr1p 'ōm
+
+-v3a vpsms 'oł
+-v3a vpsfs 'ała
+-v3a vpsns 'ało
+-v3a vpsmhp 'eli
+-v3a vpsp 'ały
+
+-v3a vam1s 'ōny
+-v3a vam2s 'ōnego
+-v3a vam3s 'ōnymu
+-v3a vamh4s 'ōnego
+-v3a vamn4s 'ōny
+-v3a vam5s 'ōny
+-v3a vam6s 'ōnym
+-v3a vam7s 'ōnym
+-v3a vamh1p 'ōni
+-v3a vamn1p 'ōne
+-v3a vam2p 'ōnych
+-v3a vam3p 'ōnym
+-v3a vamh4p 'ōnych
+-v3a vamn4p 'ōne
+-v3a vam5p 'ōne
+-v3a vam6p 'ōnych
+-v3a vam7p 'ōnymi
+-v3a vaf1s 'ōnŏ
+-v3a vaf2s 'ōnej
+-v3a vaf3s 'ōnej
+-v3a vaf4s 'ōnõ
+-v3a vaf5s 'ōnŏ
+-v3a vaf6s 'ōnej
+-v3a vaf7s 'ōnōm
+-v3a vaf1p 'ōne
+-v3a vaf2p 'ōnych
+-v3a vaf3p 'ōnym
+-v3a vaf4p 'ōne
+-v3a vaf5p 'ōne
+-v3a vaf6p 'ōnych
+-v3a vaf7p 'ōnymi
+-v3a van1s 'ōne
+-v3a van2s 'ōnego
+-v3a van3s 'ōnymu
+-v3a van4s 'ōne
+-v3a van5s 'ōne
+-v3a van6s 'ōnym
+-v3a van7s 'ōnym
+-v3a van1p 'ōne
+-v3a van2p 'ōnych
+-v3a van3p 'ōnym
+-v3a van4p 'ōne
+-v3a van5p 'ōne
+-v3a van6p 'ōnych
+-v3a van7p 'ōnymi
+
+-v3b vinf 'eć
+-v3b vtr "ōncy
+-v3b vn1s "yni
+-v3b vn2s "yniŏ
+-v3b vn3s "yniu
+-v3b vn4s "yni
+-v3b vn5s "yni
+-v3b vn6s "yniu
+-v3b vn7s "ynim
+-v3b vn1p "ynia
+-v3b vn2p "yni
+-v3b vn3p "yniōm
+-v3b vn4p "ynia
+-v3b vn5p "ynia
+-v3b vn6p "yniach
+-v3b vn7p "yniami
+
+-v3b vimp2s '
+-v3b vimp1p 'my
+-v3b vimp2p 'cie
+
+-v3b vpr1s "ã
+-v3b vpr2s 'isz
+-v3b vpr3s i
+-v3b vpr1p "ymy
+-v3b vpr2p icie
+-v3b vpr1p "ōm
+
+-v3b vpsms 'oł
+-v3b vpsfs 'ała
+-v3b vpsns 'ało
+-v3b vpsmhp 'eli
+-v3b vpsp 'ały
+
+-v3b vam1s "ōny
+-v3b vam2s "ōnego
+-v3b vam3s "ōnymu
+-v3b vamh4s "ōnego
+-v3b vamn4s "ōny
+-v3b vam5s "ōny
+-v3b vam6s "ōnym
+-v3b vam7s "ōnym
+-v3b vamh1p "ōni
+-v3b vamn1p "ōne
+-v3b vam2p "ōnych
+-v3b vam3p "ōnym
+-v3b vamh4p "ōnych
+-v3b vamn4p "ōne
+-v3b vam5p "ōne
+-v3b vam6p "ōnych
+-v3b vam7p "ōnymi
+-v3b vaf1s "ōnŏ
+-v3b vaf2s "ōnej
+-v3b vaf3s "ōnej
+-v3b vaf4s "ōnõ
+-v3b vaf5s "ōnŏ
+-v3b vaf6s "ōnej
+-v3b vaf7s "ōnōm
+-v3b vaf1p "ōne
+-v3b vaf2p "ōnych
+-v3b vaf3p "ōnym
+-v3b vaf4p "ōne
+-v3b vaf5p "ōne
+-v3b vaf6p "ōnych
+-v3b vaf7p "ōnymi
+-v3b van1s "ōne
+-v3b van2s "ōnego
+-v3b van3s "ōnymu
+-v3b van4s "ōne
+-v3b van5s "ōne
+-v3b van6s "ōnym
+-v3b van7s "ōnym
+-v3b van1p "ōne
+-v3b van2p "ōnych
+-v3b van3p "ōnym
+-v3b van4p "ōne
+-v3b van5p "ōne
+-v3b van6p "ōnych
+-v3b van7p "ōnymi
+
+-v3c vinf eć
+-v3c vtr ōncy
+-v3c vn1s yni
+-v3c vn2s yniŏ
+-v3c vn3s yniu
+-v3c vn4s yni
+-v3c vn5s yni
+-v3c vn6s yniu
+-v3c vn7s ynim
+-v3c vn1p ynia
+-v3c vn2p yni
+-v3c vn3p yniōm
+-v3c vn4p ynia
+-v3c vn5p ynia
+-v3c vn6p yniach
+-v3c vn7p yniami
+
+-v3c vimp2s 0
+-v3c vimp1p my
+-v3c vimp2p cie
+
+-v3c vpr1s ã
+-v3c vpr2s ysz
+-v3c vpr3s y
+-v3c vpr1p ymy
+-v3c vpr2p ycie
+-v3c vpr1p ōm
+
+-v3c vpsms oł
+-v3c vpsfs ała
+-v3c vpsns ało
+-v3c vpsmhp eli
+-v3c vpsp ały
+
+-v3c vam1s ōny
+-v3c vam2s ōnego
+-v3c vam3s ōnymu
+-v3c vamh4s ōnego
+-v3c vamn4s ōny
+-v3c vam5s ōny
+-v3c vam6s ōnym
+-v3c vam7s ōnym
+-v3c vamh1p ōni
+-v3c vamn1p ōne
+-v3c vam2p ōnych
+-v3c vam3p ōnym
+-v3c vamh4p ōnych
+-v3c vamn4p ōne
+-v3c vam5p ōne
+-v3c vam6p ōnych
+-v3c vam7p ōnymi
+-v3c vaf1s ōnŏ
+-v3c vaf2s ōnej
+-v3c vaf3s ōnej
+-v3c vaf4s ōnõ
+-v3c vaf5s ōnŏ
+-v3c vaf6s ōnej
+-v3c vaf7s ōnōm
+-v3c vaf1p ōne
+-v3c vaf2p ōnych
+-v3c vaf3p ōnym
+-v3c vaf4p ōne
+-v3c vaf5p ōne
+-v3c vaf6p ōnych
+-v3c vaf7p ōnymi
+-v3c van1s ōne
+-v3c van2s ōnego
+-v3c van3s ōnymu
+-v3c van4s ōne
+-v3c van5s ōne
+-v3c van6s ōnym
+-v3c van7s ōnym
+-v3c van1p ōne
+-v3c van2p ōnych
+-v3c van3p ōnym
+-v3c van4p ōne
+-v3c van5p ōne
+-v3c van6p ōnych
+-v3c van7p ōnymi
+
+-v4a vinf 'ić
+-v4a vtr "ōncy
+-v4a vn1s "yni
+-v4a vn2s "yniŏ
+-v4a vn3s "yniu
+-v4a vn4s "yni
+-v4a vn5s "yni
+-v4a vn6s "yniu
+-v4a vn7s "ynim
+-v4a vn1p "ynia
+-v4a vn2p "yni
+-v4a vn3p "yniōm
+-v4a vn4p "ynia
+-v4a vn5p "ynia
+-v4a vn6p "yniach
+-v4a vn7p "yniami
+
+-v4a vimp2s '
+-v4a vimp1p 'my
+-v4a vimp2p 'cie
+
+-v4a vpr1s "ã
+-v4a vpr2s isz
+-v4a vpr3s "y
+-v4a vpr1p "ymy
+-v4a vpr2p icie
+-v4a vpr1p "ōm
+
+-v4a vpsms 'ił
+-v4a vpsfs 'iła
+-v4a vpsns 'iło
+-v4a vpsmhp 'ili
+-v4a vpsp 'iły
+
+-v4a vam1s "ōny
+-v4a vam2s "ōnego
+-v4a vam3s "ōnymu
+-v4a vamh4s "ōnego
+-v4a vamn4s "ōny
+-v4a vam5s "ōny
+-v4a vam6s "ōnym
+-v4a vam7s "ōnym
+-v4a vamh1p "ōni
+-v4a vamn1p "ōne
+-v4a vam2p "ōnych
+-v4a vam3p "ōnym
+-v4a vamh4p "ōnych
+-v4a vamn4p "ōne
+-v4a vam5p "ōne
+-v4a vam6p "ōnych
+-v4a vam7p "ōnymi
+-v4a vaf1s "ōnŏ
+-v4a vaf2s "ōnej
+-v4a vaf3s "ōnej
+-v4a vaf4s "ōnõ
+-v4a vaf5s "ōnŏ
+-v4a vaf6s "ōnej
+-v4a vaf7s "ōnōm
+-v4a vaf1p "ōne
+-v4a vaf2p "ōnych
+-v4a vaf3p "ōnym
+-v4a vaf4p "ōne
+-v4a vaf5p "ōne
+-v4a vaf6p "ōnych
+-v4a vaf7p "ōnymi
+-v4a van1s "ōne
+-v4a van2s "ōnego
+-v4a van3s "ōnymu
+-v4a van4s "ōne
+-v4a van5s "ōne
+-v4a van6s "ōnym
+-v4a van7s "ōnym
+-v4a van1p "ōne
+-v4a van2p "ōnych
+-v4a van3p "ōnym
+-v4a van4p "ōne
+-v4a van5p "ōne
+-v4a van6p "ōnych
+-v4a van7p "ōnymi
+
+-v4b vinf "yć
+-v4b vtr "ōncy
+-v4b vn1s "yni
+-v4b vn2s "yniŏ
+-v4b vn3s "yniu
+-v4b vn4s "yni
+-v4b vn5s "yni
+-v4b vn6s "yniu
+-v4b vn7s "ynim
+-v4b vn1p "ynia
+-v4b vn2p "yni
+-v4b vn3p "yniōm
+-v4b vn4p "ynia
+-v4b vn5p "ynia
+-v4b vn6p "yniach
+-v4b vn7p "yniami
+
+-v4b vimp2s "
+-v4b vimp1p "my
+-v4b vimp2p "cie
+
+-v4b vpr1s "ã
+-v4b vpr2s "ysz
+-v4b vpr3s "y
+-v4b vpr1p "ymy
+-v4b vpr2p "ycie
+-v4b vpr1p "ōm
+
+-v4b vpsms "ył
+-v4b vpsfs "yła
+-v4b vpsns "yło
+-v4b vpsmhp "yli
+-v4b vpsp "yły
+
+-v4b vam1s "ōny
+-v4b vam2s "ōnego
+-v4b vam3s "ōnymu
+-v4b vamh4s "ōnego
+-v4b vamn4s "ōny
+-v4b vam5s "ōny
+-v4b vam6s "ōnym
+-v4b vam7s "ōnym
+-v4b vamh1p "ōni
+-v4b vamn1p "ōne
+-v4b vam2p "ōnych
+-v4b vam3p "ōnym
+-v4b vamh4p "ōnych
+-v4b vamn4p "ōne
+-v4b vam5p "ōne
+-v4b vam6p "ōnych
+-v4b vam7p "ōnymi
+-v4b vaf1s "ōnŏ
+-v4b vaf2s "ōnej
+-v4b vaf3s "ōnej
+-v4b vaf4s "ōnõ
+-v4b vaf5s "ōnŏ
+-v4b vaf6s "ōnej
+-v4b vaf7s "ōnōm
+-v4b vaf1p "ōne
+-v4b vaf2p "ōnych
+-v4b vaf3p "ōnym
+-v4b vaf4p "ōne
+-v4b vaf5p "ōne
+-v4b vaf6p "ōnych
+-v4b vaf7p "ōnymi
+-v4b van1s "ōne
+-v4b van2s "ōnego
+-v4b van3s "ōnymu
+-v4b van4s "ōne
+-v4b van5s "ōne
+-v4b van6s "ōnym
+-v4b van7s "ōnym
+-v4b van1p "ōne
+-v4b van2p "ōnych
+-v4b van3p "ōnym
+-v4b van4p "ōne
+-v4b van5p "ōne
+-v4b van6p "ōnych
+-v4b van7p "ōnymi
+
+-v5a vinf ać
+-v5a vtr ajōncy
+-v5a vn1s ani
+-v5a vn2s aniŏ
+-v5a vn3s aniu
+-v5a vn4s ani
+-v5a vn5s ani
+-v5a vn6s aniu
+-v5a vn7s anim
+-v5a vn1p ania
+-v5a vn2p ani
+-v5a vn3p aniōm
+-v5a vn4p ania
+-v5a vn5p ania
+-v5a vn6p aniach
+-v5a vn7p aniami
+
+-v5a vimp2s ej
+-v5a vimp1p ejmy
+-v5a vimp2p ejcie
+
+-v5a vpr1s ōm
+-v5a vpr2s ŏsz
+-v5a vpr3s ŏ
+-v5a vpr1p ōmy
+-v5a vpr2p ŏcie
+-v5a vpr1p ajōm
+
+-v5a vpsms oł
+-v5a vpsfs ała
+-v5a vpsns ało
+-v5a vpsmhp ali
+-v5a vpsp ały
+
+-v5a vam1s any
+-v5a vam2s anego
+-v5a vam3s anymu
+-v5a vamh4s anego
+-v5a vamn4s any
+-v5a vam5s any
+-v5a vam6s anym
+-v5a vam7s anym
+-v5a vamh1p ani
+-v5a vamn1p ane
+-v5a vam2p anych
+-v5a vam3p anym
+-v5a vamh4p anych
+-v5a vamn4p ane
+-v5a vam5p ane
+-v5a vam6p anych
+-v5a vam7p anymi
+-v5a vaf1s anŏ
+-v5a vaf2s anej
+-v5a vaf3s anej
+-v5a vaf4s anõ
+-v5a vaf5s anŏ
+-v5a vaf6s anej
+-v5a vaf7s anōm
+-v5a vaf1p ane
+-v5a vaf2p anych
+-v5a vaf3p anym
+-v5a vaf4p ane
+-v5a vaf5p ane
+-v5a vaf6p anych
+-v5a vaf7p anymi
+-v5a van1s ane
+-v5a van2s anego
+-v5a van3s anymu
+-v5a van4s ane
+-v5a van5s ane
+-v5a van6s anym
+-v5a van7s anym
+-v5a van1p ane
+-v5a van2p anych
+-v5a van3p anym
+-v5a van4p ane
+-v5a van5p ane
+-v5a van6p anych
+-v5a van7p anymi
+
+-v5b vinf ać
+-v5b vtr ajōncy
+-v5b vn1s ani
+-v5b vn2s aniŏ
+-v5b vn3s aniu
+-v5b vn4s ani
+-v5b vn5s ani
+-v5b vn6s aniu
+-v5b vn7s anim
+-v5b vn1p ania
+-v5b vn2p ani
+-v5b vn3p aniōm
+-v5b vn4p ania
+-v5b vn5p ania
+-v5b vn6p aniach
+-v5b vn7p aniami
+
+-v5b vimp2s "
+-v5b vimp1p "my
+-v5b vimp2p "cie
+
+-v5b vpr1s "ã
+-v5b vpr2s "esz
+-v5b vpr3s "e
+-v5b vpr1p "ymy
+-v5b vpr2p "ecie
+-v5b vpr1p "ōm
+
+-v5b vpsms oł
+-v5b vpsfs ała
+-v5b vpsns ało
+-v5b vpsmhp ali
+-v5b vpsp ały
+
+-v5b vam1s any
+-v5b vam2s anego
+-v5b vam3s anymu
+-v5b vamh4s anego
+-v5b vamn4s any
+-v5b vam5s any
+-v5b vam6s anym
+-v5b vam7s anym
+-v5b vamh1p ani
+-v5b vamn1p ane
+-v5b vam2p anych
+-v5b vam3p anym
+-v5b vamh4p anych
+-v5b vamn4p ane
+-v5b vam5p ane
+-v5b vam6p anych
+-v5b vam7p anymi
+-v5b vaf1s anŏ
+-v5b vaf2s anej
+-v5b vaf3s anej
+-v5b vaf4s anõ
+-v5b vaf5s anŏ
+-v5b vaf6s anej
+-v5b vaf7s anōm
+-v5b vaf1p ane
+-v5b vaf2p anych
+-v5b vaf3p anym
+-v5b vaf4p ane
+-v5b vaf5p ane
+-v5b vaf6p anych
+-v5b vaf7p anymi
+-v5b van1s ane
+-v5b van2s anego
+-v5b van3s anymu
+-v5b van4s ane
+-v5b van5s ane
+-v5b van6s anym
+-v5b van7s anym
+-v5b van1p ane
+-v5b van2p anych
+-v5b van3p anym
+-v5b van4p ane
+-v5b van5p ane
+-v5b van6p anych
+-v5b van7p anymi
+
+-v6 vinf ować
+-v6 vtr ujōncy
+-v6 vn1s owani
+-v6 vn2s owaniŏ
+-v6 vn3s owaniu
+-v6 vn4s owani
+-v6 vn5s owani
+-v6 vn6s owaniu
+-v6 vn7s owanim
+-v6 vn1p owania
+-v6 vn2p owani
+-v6 vn3p owaniōm
+-v6 vn4p owania
+-v6 vn5p owania
+-v6 vn6p owaniach
+-v6 vn7p owaniami
+
+-v6 vimp2s uj
+-v6 vimp1p ujmy
+-v6 vimp2p ujcie
+
+-v6 vpr1s ujã
+-v6 vpr2s ujesz
+-v6 vpr3s uje
+-v6 vpr1p ujymy
+-v6 vpr2p ujecie
+-v6 vpr1p ujōm
+
+-v6 vpsms owoł
+-v6 vpsfs owała
+-v6 vpsns owało
+-v6 vpsmhp owali
+-v6 vpsp owały
+
+-v6 vam1s owany
+-v6 vam2s owanego
+-v6 vam3s owanymu
+-v6 vamh4s owanego
+-v6 vamn4s owany
+-v6 vam5s owany
+-v6 vam6s owanym
+-v6 vam7s owanym
+-v6 vamh1p owani
+-v6 vamn1p owane
+-v6 vam2p owanych
+-v6 vam3p owanym
+-v6 vamh4p owanych
+-v6 vamn4p owane
+-v6 vam5p owane
+-v6 vam6p owanych
+-v6 vam7p owanymi
+-v6 vaf1s owanŏ
+-v6 vaf2s owanej
+-v6 vaf3s owanej
+-v6 vaf4s owanõ
+-v6 vaf5s owanŏ
+-v6 vaf6s owanej
+-v6 vaf7s owanōm
+-v6 vaf1p owane
+-v6 vaf2p owanych
+-v6 vaf3p owanym
+-v6 vaf4p owane
+-v6 vaf5p owane
+-v6 vaf6p owanych
+-v6 vaf7p owanymi
+-v6 van1s owane
+-v6 van2s owanego
+-v6 van3s owanymu
+-v6 van4s owane
+-v6 van5s owane
+-v6 van6s owanym
+-v6 van7s owanym
+-v6 van1p owane
+-v6 van2p owanych
+-v6 van3p owanym
+-v6 van4p owane
+-v6 van5p owane
+-v6 van6p owanych
+-v6 van7p owanymi
+
+# valence frames
+
+%vołać V subj,obj?
+%vołać V subj,iobj
+%pisać V subj,obj?,iobj?
 
 # feature structures
+
+*vinf V [vform:"inf"] autosem
+*vtr V [vform:"trg"] autosem
+
+*vimp2s V [vform:"imp",person:"2",number:"sg",tense:"pres"] autosem
+*vimp1p V [vform:"imp",person:"1",number:"pl",tense:"pres"] autosem
+*vimp2p V [vform:"imp",person:"2",number:"pl",tense:"pres"] autosem
+
+*vpr1s V [vform:"fin",person:"1",number:"sg",tense:"pres"] autosem
+*vpr2s V [vform:"fin",person:"2",number:"sg",tense:"pres"] autosem
+*vpr3s V [vform:"fin",person:"3",number:"sg",tense:"pres"] autosem
+*vpr1p V [vform:"fin",person:"1",number:"pl",tense:"pres"] autosem
+*vpr2p V [vform:"fin",person:"2",number:"pl",tense:"pres"] autosem
+*vpr3p V [vform:"fin",person:"3",number:"pl",tense:"pres"] autosem
+
+*vpsms V [vform:"past",gender:"m",number:"sg"] autosem
+*vpsfs V [vform:"past",gender:"f",number:"sg"] autosem
+*vpsns V [vform:"past",gender:"n",number:"sg"] autosem
+*vpsmhp V [vform:"past",gender:"m",anim:"hum",number:"pl"] autosem
+*vpsp V [vform:"past",anim:"nhum",number:"pl"] autosem
 
 *nmh1s N [gender:"m",anim:"hum",case:"nom",number:"sg"] autosem
 *nmh2s N [gender:"m",anim:"hum",case:"gen",number:"sg"] autosem
@@ -536,3 +1707,166 @@
 *an5p A [gender:"n",case:"voc",number:"pl"] autosem
 *an6p A [gender:"n",case:"loc",number:"pl"] autosem
 *an7p A [gender:"n",case:"ins",number:"pl"] autosem
+
+*vn1s V [vform:"vnoun",gender:"n",case:"nom",number:"sg"] autosem
+*vn2s V [vform:"vnoun",gender:"n",case:"gen",number:"sg"] autosem
+*vn3s V [vform:"vnoun",gender:"n",case:"dat",number:"sg"] autosem
+*vn4s V [vform:"vnoun",gender:"n",case:"acc",number:"sg"] autosem
+*vn5s V [vform:"vnoun",gender:"n",case:"voc",number:"sg"] autosem
+*vn6s V [vform:"vnoun",gender:"n",case:"loc",number:"sg"] autosem
+*vn7s V [vform:"vnoun",gender:"n",case:"ins",number:"sg"] autosem
+*vn1p V [vform:"vnoun",gender:"n",case:"nom",number:"pl"] autosem
+*vn2p V [vform:"vnoun",gender:"n",case:"gen",number:"pl"] autosem
+*vn3p V [vform:"vnoun",gender:"n",case:"dat",number:"pl"] autosem
+*vn4p V [vform:"vnoun",gender:"n",case:"acc",number:"pl"] autosem
+*vn5p V [vform:"vnoun",gender:"n",case:"voc",number:"pl"] autosem
+*vn6p V [vform:"vnoun",gender:"n",case:"loc",number:"pl"] autosem
+*vn7p V [vform:"vnoun",gender:"n",case:"ins",number:"pl"] autosem
+
+*vam1s V [vform:"ppart",gender:"m",case:"nom",number:"sg"] autosem
+*vam2s V [vform:"ppart",gender:"m",case:"gen",number:"sg"] autosem
+*vam3s V [vform:"ppart",gender:"m",case:"dat",number:"sg"] autosem
+*vamh4s V [vform:"ppart",gender:"m",anim:"hum",case:"acc",number:"sg"] autosem
+*vamn4s V [vform:"ppart",gender:"m",anim:"nhum",case:"acc",number:"sg"] autosem
+*vam5s V [vform:"ppart",gender:"m",case:"voc",number:"sg"] autosem
+*vam6s V [vform:"ppart",gender:"m",case:"loc",number:"sg"] autosem
+*vam7s V [vform:"ppart",gender:"m",case:"ins",number:"sg"] autosem
+*vamh1p V [vform:"ppart",gender:"m",anim:"hum",case:"nom",number:"pl"] autosem
+*vamn1p V [vform:"ppart",gender:"m",anim:"nhum",case:"nom",number:"pl"] autosem
+*vam2p V [vform:"ppart",gender:"m",case:"gen",number:"pl"] autosem
+*vam3p V [vform:"ppart",gender:"m",case:"dat",number:"pl"] autosem
+*vamh4p V [vform:"ppart",gender:"m",anim:"hum",case:"acc",number:"pl"] autosem
+*vamn4p V [vform:"ppart",gender:"m",anim:"nhum",case:"acc",number:"pl"] autosem
+*vam5p V [vform:"ppart",gender:"m",case:"voc",number:"pl"] autosem
+*vam6p V [vform:"ppart",gender:"m",case:"loc",number:"pl"] autosem
+*vam7p V [vform:"ppart",gender:"m",case:"ins",number:"pl"] autosem
+
+*vaf1s V [vform:"ppart",gender:"f",case:"nom",number:"sg"] autosem
+*vaf2s V [vform:"ppart",gender:"f",case:"gen",number:"sg"] autosem
+*vaf3s V [vform:"ppart",gender:"f",case:"dat",number:"sg"] autosem
+*vaf4s V [vform:"ppart",gender:"f",case:"acc",number:"sg"] autosem
+*vaf5s V [vform:"ppart",gender:"f",case:"voc",number:"sg"] autosem
+*vaf6s V [vform:"ppart",gender:"f",case:"loc",number:"sg"] autosem
+*vaf7s V [vform:"ppart",gender:"f",case:"ins",number:"sg"] autosem
+*vaf1p V [vform:"ppart",gender:"f",case:"nom",number:"pl"] autosem
+*vaf2p V [vform:"ppart",gender:"f",case:"gen",number:"pl"] autosem
+*vaf3p V [vform:"ppart",gender:"f",case:"dat",number:"pl"] autosem
+*vaf4p V [vform:"ppart",gender:"f",case:"acc",number:"pl"] autosem
+*vaf5p V [vform:"ppart",gender:"f",case:"voc",number:"pl"] autosem
+*vaf6p V [vform:"ppart",gender:"f",case:"loc",number:"pl"] autosem
+*vaf7p V [vform:"ppart",gender:"f",case:"ins",number:"pl"] autosem
+
+*van1s V [vform:"ppart",gender:"n",case:"nom",number:"sg"] autosem
+*van2s V [vform:"ppart",gender:"n",case:"gen",number:"sg"] autosem
+*van3s V [vform:"ppart",gender:"n",case:"dat",number:"sg"] autosem
+*van4s V [vform:"ppart",gender:"n",case:"acc",number:"sg"] autosem
+*van5s V [vform:"ppart",gender:"n",case:"voc",number:"sg"] autosem
+*van6s V [vform:"ppart",gender:"n",case:"loc",number:"sg"] autosem
+*van7s V [vform:"ppart",gender:"n",case:"ins",number:"sg"] autosem
+*van1p V [vform:"ppart",gender:"n",case:"nom",number:"pl"] autosem
+*van2p V [vform:"ppart",gender:"n",case:"gen",number:"pl"] autosem
+*van3p V [vform:"ppart",gender:"n",case:"dat",number:"pl"] autosem
+*van4p V [vform:"ppart",gender:"n",case:"acc",number:"pl"] autosem
+*van5p V [vform:"ppart",gender:"n",case:"voc",number:"pl"] autosem
+*van6p V [vform:"ppart",gender:"n",case:"loc",number:"pl"] autosem
+*van7p V [vform:"ppart",gender:"n",case:"ins",number:"pl"] autosem
+
+# replacements ("two-level" morphology)
+
+!> m'ã miã
+!> t'l tl
+!> d'l dl
+!> t'ć ść
+!> d'ć ść
+!> t'y cy
+!> d'y dzy
+!> t'ō cō
+!> d'ō dzō
+!> n'a nia
+!> m'a mia
+!> p'a pia
+!> s'a sia
+!> c'a cia
+!> z'a zia
+!> n'ã niã
+!> n'e nie
+!> p'e pie
+!> d'e dzie
+!> s'e sie
+!> c'e cie
+!> t'e cie
+!> b'e bie
+!> m'e mie
+!> c'e cie
+!> z'e zie
+!> m'y miy
+!> p'y piy
+!> s'i si
+!> c'i ci
+!> z'i zi
+!> p'i pi
+!> n'i ni
+!> d'i dzi
+!> r'i rzi
+!> s'o sio
+!> c'o cio
+!> z'o zio
+!> m'o mio
+!> p'o pio
+!> n'o nio
+!> k'ŏ kŏ
+!> k'õ kõ
+!> k'ō kō
+!> p'ŏ piŏ
+!> p'õ piõ
+!> p'ō piō
+!> s'ō siō
+!> z'ō ziō
+!> m'ō miō
+!> n'ō niō
+!> w"ō wiō
+!> w"yn wiyn
+!> w"ym wiym
+!> w"ã wiã
+!> w"y wi
+!> z"y ży
+!> z"ã żã
+!> l"ō lō
+!> p"ō piō
+!> l"yn lyn
+!> l"ym lym
+!> l"ã lã
+!> l"y li
+!> p"y piy
+!> r"ō rzō
+!> z"ō żō
+!> r"yn rzyn
+!> r"ym rzym
+!> r"ã rzã
+!> r"y rzi
+!> ńa nia
+!> ńu niu
+!> ńy niy
+!> ńi ni
+!> ńe nie
+!> ńŏ niŏ
+!> ńō niō
+!> ća cia
+!> ću ciu
+!> ćy ciy
+!> ći ci
+!> će cie
+!> ćō ciō
+!> s' ś
+!> c' ć
+!> t' ć
+!> d' dź
+!> z' ź
+!> w' w
+!> p' p
+!> l' l
+!> r' rz
+!> p" p
+!> dz" dz
+!> s" sz
+!> c" c
