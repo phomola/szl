@@ -75,6 +75,16 @@ func (avm *AVM) GetString(attr string) (string, bool) {
 	return "", false
 }
 
+// GetAVM gets the value of an AVM-valued attribute.
+func (avm *AVM) GetAVM(attr string) (*AVM, bool) {
+	if v, ok := avm.Features[attr]; ok {
+		if x, ok := v.(*AVM); ok {
+			return x, true
+		}
+	}
+	return nil, false
+}
+
 // GetList gets the value of a list-valued attribute.
 func (avm *AVM) GetList(attr string) (*AVMList, bool) {
 	if v, ok := avm.Features[attr]; ok {
