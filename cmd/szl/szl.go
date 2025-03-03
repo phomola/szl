@@ -274,6 +274,7 @@ func getBestEdges(edges []*syntax.Edge) []*syntax.Edge {
 	weight := edges[0].Weight
 	r := make([]*syntax.Edge, 0, len(edges))
 	for _, e := range edges {
+		// fmt.Println("#", e.Category, e.Form, e.Weight)
 		if e.Weight > weight {
 			break
 		}

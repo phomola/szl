@@ -1574,9 +1574,10 @@
 
 # valence frames
 
-%vołać V subj,obj?
-%vołać V subj,iobj
-%pisać V subj,obj?,iobj?
+%vołać V subj?,obj?
+%vołać V subj?,iobj
+%pisać V subj?,obj?,iobj?
+%pŏlić V subj?,obj?
 
 # feature structures
 
