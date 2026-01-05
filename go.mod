@@ -1,9 +1,9 @@
 module github.com/phomola/szl
 
-go 1.23.0
+go 1.25.0
 
 require (
-	github.com/fealsamh/go-utils v0.1.36
-	github.com/phomola/lrparser v0.1.8
-	github.com/phomola/textkit v0.1.5
+	github.com/fealsamh/go-utils v0.1.63
+	github.com/phomola/lrparser v0.1.10
+	github.com/phomola/textkit v0.1.6
 )
